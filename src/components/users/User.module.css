@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+.user_wrapper{
+    margin: 5px;
+    text-align: center;
+    border: 1px solid black;
+    width: 600px;
+    box-sizing: border-box;
+    padding: 10px;
+}

@@ -1,9 +1,11 @@
+import {Posts} from "./posts/Posts/Posts";
 
 function App() {
-  return (
-    <div>
 
-    </div>
+  return (
+      <div>
+        <Posts/>
+      </div>
   );
 }
 

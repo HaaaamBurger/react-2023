@@ -1,15 +1,15 @@
 import {useEffect, useState} from "react";
+
 import {Post} from "../Post/Post";
-import {PostInfo} from "../postInfo/PostInfo";
+import {PostInfo} from "../PostInfo/PostInfo";
+import {FetchServices} from "../services/fetch.services";
 
 const Posts = () => {
     const [posts,setPosts] = useState([]);
     const [info,setInfo] = useState(null);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then(posts => setPosts(posts));
+        FetchServices.getPosts().then(response => response.json()).then(posts => setPosts(posts));
     },[]);
 
     const infoHandler = (post) => {

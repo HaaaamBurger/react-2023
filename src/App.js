@@ -1,4 +1,4 @@
-import {Launches} from "./spacex/launches";
+import {Launches} from "./spacex/components/launches";
 
 function App() {
   return (

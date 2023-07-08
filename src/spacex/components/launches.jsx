@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Launch} from "./launch";
+import {FetchServices} from "../services/fetch.services";
 
 const Launches = () => {
     const [launch,setLaunch] = useState([]);
 
     useEffect(() => {
-        fetch('https://api.spacexdata.com/v3/launches/')
-            .then(response => response.json())
-            .then(data => setLaunch(data));
+        FetchServices.getLaunches().then(response => response.json()).then(data => setLaunch(data));
     },[])
 
     return (

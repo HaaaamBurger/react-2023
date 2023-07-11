@@ -1,0 +1,17 @@
+import React from 'react';
+
+import {SubChild11} from "./subchild1_1/SubChild1_1";
+import {SubChild12} from "./subchild1_2/SubChild1_2";
+
+const Child1 = ({info}) => {
+    return (
+        <div>
+            <SubChild11 info={info}/>
+            <SubChild12/>
+        </div>
+    );
+};
+
+export {
+    Child1,
+};

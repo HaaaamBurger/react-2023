@@ -1,12 +1,13 @@
-import {Child1} from "./components/child1/Child1";
-import {Child2} from "./components/child2/Child2";
 import {createContext, useState} from "react";
 
-function App() {
-  //Передача контекстом
-  const InfoContext = createContext(null);
-  const mainInfo = 'React'
+import {Child1} from "./components/child1/Child1";
+import {Child2} from "./components/child2/Child2";
 
+//Передача контекстом
+export const InfoContext = createContext(null);
+const mainInfo = 'React';
+
+function App() {
 
   //Передача стейтом
   const [info, setInfo] = useState(null);
@@ -23,4 +24,4 @@ function App() {
   );
 }
 
-export {App,createContext};
+export default App;

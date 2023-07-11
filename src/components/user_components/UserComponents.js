@@ -15,7 +15,6 @@ const UserComponents = () => {
     return (
         <div>
             <div>
-                {/*{user && user.name}*/}
                 {user && user.map(posts => <div>
                     <h3>Id: {posts.id} / UserId: {posts.userId}</h3>
                     <p>Title: {posts.title}</p>

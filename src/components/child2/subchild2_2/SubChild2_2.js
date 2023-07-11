@@ -7,7 +7,7 @@ const SubChild22 = () => {
 
     const mainInfo = useContext(InfoContext);
     const info = 'React';
-    mainInfo(info);
+    mainInfo.setInfo(info);
     return (
         <div>
 

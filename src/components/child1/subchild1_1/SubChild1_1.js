@@ -3,9 +3,10 @@ import {useContext} from "react";
 import {InfoContext} from "../../../App";
 
 
-const SubChild11 = ({info}) => {
+const SubChild11 = () => {
 
-   console.log(info);
+    const mainInfo = useContext(InfoContext)
+   console.log(mainInfo.info);
 
     return (
         <div>

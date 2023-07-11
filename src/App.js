@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div>
-      <InfoContext.Provider value={setInfo}>
+      <InfoContext.Provider value={{setInfo,info}}>
         <Child1 info={info}/>
         <Child2/>
       </InfoContext.Provider>

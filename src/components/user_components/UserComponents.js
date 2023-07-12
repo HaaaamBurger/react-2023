@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 
 import {fetchServices} from "../../services/fetch.services";
 import {UserComponent} from "../user_component/UserComponent";
+import {Posts} from "../posts/Posts";
 
 const UserComponents = () => {
 
     const [users, setUsers] = useState([]);
-    const [user, setUser] = useState([]);
+    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
         fetchServices.getUsers().then(response => response.json()).then(data => setUsers(data));
@@ -15,14 +16,11 @@ const UserComponents = () => {
     return (
         <div>
             <div>
-                {user && user.map(posts => <div>
-                    <h3>Id: {posts.id} / UserId: {posts.userId}</h3>
-                    <p>Title: {posts.title}</p>
-                </div>)}
+                {userId && <Posts userId={userId}/>}
             </div>
             <hr/>
             <div>
-                {users.map(data => <UserComponent key={data.id} user={data} setUser={setUser}/>)}
+                {users.map(data => <UserComponent key={data.id} user={data} setUserId={setUserId}/>)}
             </div>
         </div>
     );

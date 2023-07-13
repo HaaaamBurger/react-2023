@@ -5,12 +5,13 @@ import {Car} from "./Car";
 const ShowCars = () => {
     const [cars, setCars] = useState([]);
 
+
     useEffect(() => {
         fetch('http://owu.linkpc.net/carsAPI/v1/cars')
             .then(response => response.json())
             .then(data => setCars(data))
     },[])
-    console.log(cars)
+    console.log(cars);
 
     return (
         <div>

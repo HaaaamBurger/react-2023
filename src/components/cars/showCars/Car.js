@@ -14,8 +14,8 @@ const Car = ({car}) => {
         }catch (e){
             console.log(e);
         }
-    }
 
+    }
 
     const {id,brand,price,year} = car;
     return (
@@ -26,7 +26,6 @@ const Car = ({car}) => {
             <p>Year: {year}</p>
             <div>
                 <button onClick={() => handleDelete(id)}>Delete</button>
-                <button>Update</button>
             </div>
         </div>
     );

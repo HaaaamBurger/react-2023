@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
-const Form = () => {
+const UpdateCar = () => {
     const [userInfo,setUserInfo] = useState({
+        id: '',
         brand: '',
         price: '',
         year: ''
@@ -9,7 +10,7 @@ const Form = () => {
 
 
     const handleFormChange = (e,key) => {
-        // e.preventDefault();
+        e.preventDefault();
         setUserInfo(prevState => {
             return{
                 ...prevState,
@@ -18,12 +19,11 @@ const Form = () => {
         })
     }
 
-
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         try{
-            fetch('http://owu.linkpc.net/carsAPI/v1/cars',{
-                method: 'POST',
+            fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${userInfo.id}`,{
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
@@ -36,28 +36,31 @@ const Form = () => {
         }catch (e){
             console.log(e);
         }
-
-        setUserInfo({
-            brand: '',
-            price: '',
-            year: ''
-        })
+        console.log(userInfo)
+        // setUserInfo({
+        //     id: '',
+        //     brand: '',
+        //     price: '',
+        //     year: ''
+        // })
     }
 
-    return (
 
+    return (
         <div>
             <form onSubmit={handleSubmit}>
-                <p>Registration</p>
+                <p>Update Car</p>
+                <input type="number" placeholder={'Car Id'} value={userInfo.id} onChange={(e) => handleFormChange(e,'id')}/>
                 <input type="text" placeholder={'Brand'} value={userInfo.brand} onChange={(e) => handleFormChange(e,'brand')}/>
                 <input type="number" placeholder={'Price'} value={userInfo.price} onChange={(e) => handleFormChange(e,'price')}/>
                 <input type="number" placeholder={'Year'} value={userInfo.year} onChange={(e) => handleFormChange(e,'year')}/>
-                <button>Add Car</button>
+                <button>Update</button>
             </form>
+
         </div>
     );
 };
 
 export {
-    Form,
+    UpdateCar,
 };

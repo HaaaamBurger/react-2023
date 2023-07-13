@@ -1,9 +1,11 @@
-import {PostUser} from "./components/postUser/PostUser";
+// import {CreateUser} from "./components/createUser/CreateUser";
+// import {CreatePost} from "./components/createPost/CreatePost";
 
 function App() {
   return (
     <div>
-      <PostUser/>
+      {/*<CreateUser/>*/}
+      {/*  <CreatePost/>*/}
     </div>
   );
 }

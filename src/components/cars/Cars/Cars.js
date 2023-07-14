@@ -11,7 +11,7 @@ const Cars = ({onSave,setOnSave}) => {
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car}/>)}
+            {cars.map(car => <Car key={car.id} car={car} setOnSave={setOnSave}/>)}
         </div>
     );
 };

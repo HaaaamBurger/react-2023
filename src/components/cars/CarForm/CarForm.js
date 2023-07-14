@@ -12,7 +12,7 @@ const CarForm = ({setOnSave}) => {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data)
-        }).then(response => response.json()).then(data => () => {
+        }).then(response => response.json()).then(() => {
             setOnSave(prev => !prev);
             reset();
         })

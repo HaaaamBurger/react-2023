@@ -2,14 +2,14 @@ import React from 'react';
 
 import styles from './car.module.css';
 
-const Car = ({car}) => {
+const Car = ({car,setOnSave}) => {
 
     const handleDelete = (id) => {
         fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`,{
             method: 'DELETE',
             headers: {'content-type' : 'application/json'}
-        })
-        // setOnSave(prev => !prev);
+        }).then(() => setOnSave(prev => !prev))
+
 
     }
 

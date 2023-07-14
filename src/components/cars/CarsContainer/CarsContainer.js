@@ -12,7 +12,7 @@ const CarsContainer = () => {
             </div>
             <hr/>
             <div>
-                <Cars onSave={onSave}/>
+                <Cars onSave={onSave} setOnSave={setOnSave}/>
             </div>
         </div>
     );

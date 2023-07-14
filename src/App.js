@@ -1,13 +1,13 @@
 // import {CreateUser} from "./components/createUser/CreateUser";
 // import {CreatePost} from "./components/createPost/CreatePost";
-// import {Cars} from "./components/cars/mainComponent/Cars";
+import {CarsContainer} from "./components/cars/CarsContainer/CarsContainer";
 
 function App() {
   return (
     <div>
       {/*<CreateUser/>*/}
       {/*<CreatePost/>*/}
-      {/*  <Cars/>*/}
+        <CarsContainer/>
     </div>
   );
 }

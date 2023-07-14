@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './car.module.css';
 
-const Car = ({car,setOnSave}) => {
+const Car = ({car,setOnSave,setGetCar}) => {
 
     const handleDelete = (id) => {
         fetch(`http://owu.linkpc.net/carsAPI/v1/cars/${id}`,{
@@ -19,7 +19,7 @@ const Car = ({car,setOnSave}) => {
             <div>Price: {price}</div>
             <div>Year: {year}</div>
             <button onClick={() => handleDelete(id)}>Delete</button>
-            <button>Update</button>
+            <button onClick={() => setGetCar(car)}>Update</button>
         </div>
     );
 };

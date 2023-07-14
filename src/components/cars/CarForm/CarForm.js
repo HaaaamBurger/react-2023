@@ -1,12 +1,15 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
-import {fetchServices} from "../Services/fetch.services";
 
 const CarForm = ({setOnSave}) => {
 
-    const {register,handleSubmit,reset,formState: {errors,isValid}} = useForm();
+    const {register,handleSubmit,reset,formState: {errors,isValid},setValue} = useForm();
+
+
 
     const save = (data) => {
+
+
 
         fetch('http://owu.linkpc.net/carsAPI/v1/cars',{
             method: 'POST',
@@ -15,7 +18,7 @@ const CarForm = ({setOnSave}) => {
         }).then(response => response.json()).then(() => {
             setOnSave(prev => !prev);
             reset();
-        })
+        });
     }
 
     return (

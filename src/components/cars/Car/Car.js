@@ -9,8 +9,6 @@ const Car = ({car,setOnSave}) => {
             method: 'DELETE',
             headers: {'content-type' : 'application/json'}
         }).then(() => setOnSave(prev => !prev))
-
-
     }
 
     const {id,brand,price,year} = car;

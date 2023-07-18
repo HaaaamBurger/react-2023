@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {axiosServices} from "../Services/Axios.sevices";
 import {Car} from "../Car/Car";
 
-const Cars = ({pingCars,setPingCars}) => {
+const Cars = ({pingCars,setPingCars,setUpdateCar}) => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const Cars = ({pingCars,setPingCars}) => {
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car} setPingCars={setPingCars}/>)}
+            {cars.map(car => <Car key={car.id} car={car} setPingCars={setPingCars} setUpdateCar={setUpdateCar}/>)}
         </div>
     );
 };

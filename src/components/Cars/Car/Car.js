@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './car.module.css'
 import {axiosServices} from "../Services/Axios.sevices";
-const Car = ({car,setPingCars}) => {
+const Car = ({car,setPingCars,setUpdateCar}) => {
     const {id,brand,price,year} = car;
 
     const deleteHandle = () => {
@@ -16,7 +16,7 @@ const Car = ({car,setPingCars}) => {
             <div>price: {price}</div>
             <div>year: {year}</div>
             <button onClick={deleteHandle}>Delete</button>
-            <button>Update</button>
+            <button onClick={() => setUpdateCar(car)}>Update</button>
         </div>
     );
 };

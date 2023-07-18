@@ -5,7 +5,7 @@ import {Cars} from "./Cars/Cars";
 
 const CarsContainer = () => {
     const [pingCars,setPingCars] = useState(null);
-    const [updateCar,setUpdateCar] = useState([]);
+    const [updateCar,setUpdateCar] = useState(null);
     return (
         <div>
             <div>

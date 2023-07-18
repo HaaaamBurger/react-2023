@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {axiosServices} from "../Services/Axios.sevices";
+
 import {Car} from "../Car/Car";
+import {axiosServices} from "../../../Services/ServicesCar/Axios.sevices";
 
 const Cars = ({pingCars,setPingCars,setUpdateCar}) => {
     const [cars, setCars] = useState([]);

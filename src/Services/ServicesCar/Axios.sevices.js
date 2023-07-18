@@ -1,5 +1,7 @@
 import axios from "axios";
-import {baseURL, links} from "../Index/Links";
+
+import {baseURL} from "../../baseURL/baseURl";
+import {links} from "../../components/Cars/Index/Links";
 
 const axiosServices = {
     getCars: () => axios.get(baseURL + links.cars),

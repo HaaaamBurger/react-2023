@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './car.module.css'
-import {axiosServices} from "../Services/Axios.sevices";
+import {axiosServices} from "../../../Services/ServicesCar/Axios.sevices";
 const Car = ({car,setPingCars,setUpdateCar}) => {
     const {id,brand,price,year} = car;
 

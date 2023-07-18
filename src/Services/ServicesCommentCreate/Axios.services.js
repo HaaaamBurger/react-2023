@@ -1,5 +1,6 @@
 import axios from "axios";
-import {baseURL} from "../Index/Links";
+import {baseURL} from "../../baseURL/baseURl";
+
 
 const axiosServices = {
     createPost: (object) => axios.post(baseURL,object)

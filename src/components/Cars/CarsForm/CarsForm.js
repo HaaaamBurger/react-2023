@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
+
 import {useForm} from "react-hook-form";
-import {axiosServices} from "../Services/Axios.sevices";
+import {axiosServices} from "../../../Services/ServicesCar/Axios.sevices";
+
 
 const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
 
@@ -29,12 +31,13 @@ const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
                 reset();
                 setUpdateCar(null);
             })
+        } else {
+            axiosServices.createCar(object).then(response => {
+                setPingCars(prev => !prev);
+            });
+            reset();
         }
 
-        axiosServices.createCar(object).then(response => {
-            setPingCars(prev => !prev);
-        });
-        reset();
     }
 
     return (

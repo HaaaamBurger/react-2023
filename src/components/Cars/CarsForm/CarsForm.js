@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 
 import {useForm} from "react-hook-form";
 import {axiosServices} from "../../../Services/ServicesCar/Axios.sevices";
+import {joiResolver} from "@hookform/resolvers/joi";
+import {carValidation} from "../carValidation/CarValidation";
 
 
 const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
@@ -13,7 +15,8 @@ const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
         setValue,
         formState: {isValid,errors}
     } = useForm({
-        mode: 'all'
+        mode: 'all',
+        resolver: joiResolver(carValidation)
     });
 
     useEffect(() => {
@@ -45,8 +48,14 @@ const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
     return (
         <form onSubmit={handleSubmit(save)}>
             <input type="text" placeholder={'brand'} {...register('brand')}/>
+            {errors.brand && <span>{errors.brand.message}</span>}
+
             <input type="number" placeholder={'price'} {...register('price',{required:true})}/>
+            {errors.price && <span>{errors.price.message}</span>}
+
             <input type="number" placeholder={'year'} {...register('year',{required:true})}/>
+            {errors.year && <span>{errors.year.message}</span>}
+
             <button disabled={!isValid}>{!updateCar ? 'Add' : 'Update'}</button>
         </form>
     );

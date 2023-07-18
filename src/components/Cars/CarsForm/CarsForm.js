@@ -11,8 +11,10 @@ const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
         register,
         handleSubmit,
         setValue,
-        formState: {isValid}
-    } = useForm();
+        formState: {isValid,errors}
+    } = useForm({
+        mode: 'all'
+    });
 
     useEffect(() => {
         if (updateCar) {
@@ -42,7 +44,7 @@ const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
 
     return (
         <form onSubmit={handleSubmit(save)}>
-            <input type="text" placeholder={'brand'} {...register('brand',{required:true})}/>
+            <input type="text" placeholder={'brand'} {...register('brand')}/>
             <input type="number" placeholder={'price'} {...register('price',{required:true})}/>
             <input type="number" placeholder={'year'} {...register('year',{required:true})}/>
             <button disabled={!isValid}>{!updateCar ? 'Add' : 'Update'}</button>

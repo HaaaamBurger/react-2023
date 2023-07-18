@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {baseURL} from "../../baseURL/baseURl";
+import {baseURL} from "../../baseURL\'s/baseURL_cars/baseURl";
 import {links} from "../../components/Cars/Index/Links";
 
 const axiosServices = {

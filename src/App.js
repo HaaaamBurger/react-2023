@@ -6,9 +6,9 @@ import {CarsContainer} from "./components/Cars/CarsContainer";
 function App() {
   return (
     <div>
-      {/*<CreateUser />*/}
+      <CreateUser />
       {/*<CreateComment/>*/}
-      <CarsContainer/>
+      {/*<CarsContainer/>*/}
     </div>
   );
 }

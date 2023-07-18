@@ -1,17 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
 import {axiosServices} from "../../../Services/ServicesUserCreate/axios.services";
 
-const UserForm = () => {
 
-    const [success,setSuccess] = useState(null);
+const UserForm = () => {
 
     const {
         register,
         handleSubmit,
-        reset
+        reset,
+        formState: {errors,isValid}
 
-    } = useForm();
+    } = useForm({
+        mode: 'all'
+    });
+    console.log(errors);
 
     const save = (object) => {
         axiosServices.createUser(object).then(response => {
@@ -21,9 +24,21 @@ const UserForm = () => {
     }
     return (
         <form onSubmit={handleSubmit(save)}>
-            <label><input type="text" placeholder={'name'} {...register('name', {min: 1,required:true})}/></label>
-            <label><input type="text" placeholder={'username'} {...register('username', {min:1,required:true})}/></label>
-            <button>Add</button>
+            <label><input type="text" placeholder={'name'} {...register('name', {
+                required: 'Required',
+                minLength: {value: 2,message: 'Min 2!'},
+                maxLength: {value: 12, message: 'Max 12!'}
+            })}/></label>
+            {errors.name && <span>{errors.name.message}</span>}
+
+            <label><input type="text" placeholder={'username'} {...register('username', {
+                required: 'Required!',
+                minLength: {value: 2,message: 'Min 2!'},
+                maxLength: {value: 12, message: 'Max 12!'}
+            })}/></label>
+            {errors.username && <span>{errors.username.message}</span>}
+
+            <button disabled={!isValid}>Add</button>
 
         </form>
     );

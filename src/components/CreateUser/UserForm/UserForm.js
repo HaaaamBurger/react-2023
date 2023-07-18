@@ -16,9 +16,6 @@ const UserForm = () => {
     const save = (object) => {
         axiosServices.createUser(object).then(response => {
             console.log(response.data);
-            if (response.data) {
-                setSuccess(true);
-            }
         });
         reset();
     }
@@ -27,7 +24,7 @@ const UserForm = () => {
             <label><input type="text" placeholder={'name'} {...register('name', {min: 1,required:true})}/></label>
             <label><input type="text" placeholder={'username'} {...register('username', {min:1,required:true})}/></label>
             <button>Add</button>
-            {success ? <span>Success</span> : <span>No response</span>}
+
         </form>
     );
 };

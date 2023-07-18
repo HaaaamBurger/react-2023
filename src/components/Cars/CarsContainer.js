@@ -9,7 +9,7 @@ const CarsContainer = () => {
     return (
         <div>
             <div>
-                <CarsForm updateCar={updateCar} setPingCars={setPingCars}/>
+                <CarsForm updateCar={updateCar} setPingCars={setPingCars} setUpdateCar={setUpdateCar}/>
             </div>
             <hr/>
             <div>

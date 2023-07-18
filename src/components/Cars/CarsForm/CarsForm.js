@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {axiosServices} from "../Services/Axios.sevices";
 
-const CarsForm = ({updateCar,setPingCars}) => {
+const CarsForm = ({updateCar,setPingCars,setUpdateCar}) => {
 
     const {
         reset,
@@ -26,7 +26,8 @@ const CarsForm = ({updateCar,setPingCars}) => {
         if (updateCar) {
             axiosServices.updateCar(updateCar.id,object).then(() => {
                 setPingCars(prev => !prev);
-                // updateCar = null;
+                reset();
+                setUpdateCar(null);
             })
         }
 

@@ -5,7 +5,7 @@ import {axiosServices} from "../../Services/axiosServices";
 import styles from './post.module.css'
 
 const Post = ({postId}) => {
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(null);
 
     useEffect(() => {
         axiosServices.getPostsbyId(postId).then(({data}) => setPosts(data));
@@ -14,10 +14,10 @@ const Post = ({postId}) => {
         <div>
             {posts && <div className={styles.postWrapper}>
                 <h2>Current post:</h2>
-                <div>{posts.id}</div>
-                <div>{posts.name}</div>
-                <div>{posts.email}</div>
-                <div>{posts.body}</div>
+                <div>Id: {posts.id}</div>
+                <div>Name: {posts.name}</div>
+                <div>Email: {posts.email}</div>
+                <div>Body: {posts.body}</div>
             </div>}
         </div>
     );

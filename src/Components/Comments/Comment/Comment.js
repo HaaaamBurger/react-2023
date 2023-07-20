@@ -7,8 +7,8 @@ const Comment = ({comment,setPostId}) => {
     return (
         <div className={styles.commentWrapper} onClick={() => setPostId(id)}>
             <div>Id: {id}</div>
-            <div>Email: {email}.</div>
             <div>Name: {name}.</div>
+            <div>Email: {email}.</div>
             <div>Body: {body}.</div>
         </div>
     );

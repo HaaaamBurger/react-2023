@@ -2,8 +2,7 @@ import React from 'react';
 
 import styles from './comment.module.css'
 
-
-const Comment = ({comment,setPostId}) => {
+const Comment = ({comment}) => {
     const {id,email,name,body} = comment;
     return (
         <div className={styles.commentWrapper}>

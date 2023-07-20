@@ -2,7 +2,7 @@ const AppRoutes = {
     TODOS: '/todos',
     ALBUMS: '/albums',
     COMMENTS: '/comments',
-    POSTS: '/comments/:id'
+    POSTS: '/comments/posts/:id'
 }
 const AppRoutesLink = [
     {

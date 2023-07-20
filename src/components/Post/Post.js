@@ -5,7 +5,7 @@ import {axiosServices} from "../../services/axiosServices";
 import styles from './post.module.css'
 import {useParams} from "react-router-dom";
 
-const Post = ({}) => {
+const Post = () => {
     const postId = useParams();
 
     const [posts, setPosts] = useState(null);
@@ -16,7 +16,9 @@ const Post = ({}) => {
 
     return (
         <div>
-            {posts && <div className={styles.postWrapper}>
+            {posts && <div className={styles.postWrapper} onClick={() => {
+
+            }}>
                 <h2>Current post:</h2>
                 <div>Id: {posts.id}</div>
                 <div>Title: {posts.title}</div>

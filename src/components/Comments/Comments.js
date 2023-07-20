@@ -7,7 +7,6 @@ import {Outlet} from "react-router-dom";
 
 const Comments = () => {
     const [comments,setComments] = useState([]);
-    const [postId,setPostId] = useState(null);
 
     useEffect(() => {
         axiosServices.getComments().then(({data}) => setComments(data));
@@ -20,7 +19,7 @@ const Comments = () => {
             </div>
             <hr/>
             <div>
-                {comments.map(comment => <Comment key={comment.id} comment={comment} setPostId={setPostId}/>)}
+                {comments.map(comment => <Comment key={comment.id} comment={comment}/>)}
             </div>
         </div>
     );

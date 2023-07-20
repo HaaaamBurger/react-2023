@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {Link, Outlet} from "react-router-dom";
-import {AppRoutesLink} from "../../Constants/appRoutes/AppRoutes";
+import {AppRoutesLink} from "../../constants/appRoutes/AppRoutes";
 
 import styles from './homePage.module.css'
 

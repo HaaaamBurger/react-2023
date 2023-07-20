@@ -1,5 +1,5 @@
 import {apiServices} from "./apiServices";
-import {links} from "../Constants/baseURL/baseURL";
+import {links} from "../constants/baseURL/baseURL";
 
 
 const axiosServices = {

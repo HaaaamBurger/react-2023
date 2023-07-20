@@ -4,7 +4,7 @@ const links = {
     todos: '/todos',
     albums: '/albums',
     comments: '/comments',
-    posts: (id) => `/comments/${id}`
+    posts: (id) => `/posts/${id}`
 }
 
 export {baseURL,links};

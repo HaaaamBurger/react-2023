@@ -6,7 +6,8 @@ import {HomePage} from "../HomePage/HomePage";
 import {Todos} from "../Todos/Todos";
 import {Albums} from "../Albums/Albums";
 import {Comments} from "../Comments/Comments";
-import {AppRoutes} from "../../Constants/appRoutes/AppRoutes";
+import {AppRoutes, AppRoutesLink} from "../../constants/appRoutes/AppRoutes";
+import {Post} from "../Post/Post";
 
 const MainRouter = createBrowserRouter([
     {
@@ -23,7 +24,13 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: AppRoutes.COMMENTS,
-                element: <Comments/>
+                element: <Comments/>,
+                children: [
+                    {
+                        path: AppRoutes.POSTS,
+                        element: <Post/>
+                    }
+                ]
             }
         ]
     },

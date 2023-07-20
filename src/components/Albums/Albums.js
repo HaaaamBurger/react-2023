@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {axiosServices} from "../../Services/axiosServices";
+import {axiosServices} from "../../services/axiosServices";
 import {Album} from "./Album/Album";
 
 const Albums = () => {

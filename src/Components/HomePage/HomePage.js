@@ -1,12 +1,16 @@
 import React from 'react';
 
+import {Link, Outlet} from "react-router-dom";
+import {AppRoutesLink} from "../../Constants/appRoutes/AppRoutes";
+
 import styles from './homePage.module.css'
-import {Outlet} from "react-router-dom";
 
 const HomePage = () => {
     return (
         <div>
-            <div className={styles.wrapper}></div>
+            <div className={styles.wrapper}>
+                {AppRoutesLink.map((route,index) => <Link to={route.path} key={index}>{route.label}</Link>)}
+            </div>
             <Outlet/>
         </div>
     );

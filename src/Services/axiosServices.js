@@ -1,10 +1,12 @@
 import {apiServices} from "./apiServices";
-import {links} from "../Constants/baseURL";
+import {links} from "../Constants/baseURL/baseURL";
+
 
 const axiosServices = {
     getTodos: () => apiServices.get(links.todos),
     getAlbums: () => apiServices.get(links.albums),
     getComments: () => apiServices.get(links.comments),
+    getPostsbyId: (id) => apiServices.get(links.posts(id))
 }
 
 export {axiosServices};

@@ -8,7 +8,7 @@ import {Post} from "../Post/Post";
 const Comments = () => {
     const [comments,setComments] = useState([]);
 
-    const [postId,setPostId] = useState([]);
+    const [postId,setPostId] = useState(null);
 
     useEffect(() => {
         axiosServices.getComments().then(({data}) => setComments(data));

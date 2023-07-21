@@ -16,9 +16,7 @@ const Post = () => {
 
     return (
         <div>
-            {posts && <div className={styles.postWrapper} onClick={() => {
-
-            }}>
+            {posts && <div className={styles.postWrapper}>
                 <h2>Current post:</h2>
                 <div>Id: {posts.id}</div>
                 <div>Title: {posts.title}</div>

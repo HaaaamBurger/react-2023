@@ -80,7 +80,7 @@ select {
 }
 .mainLayoutLinks{
     box-sizing: border-box;
-    margin: 50px 0 50px 20px;
+    margin: 50px 0 50px 15px;
     display: flex;
     flex-direction: column;
 }
@@ -105,9 +105,14 @@ select {
 .mainLayoutNav ul li{
     list-style: none;
 }
+
+.mainLayoutLinks a[class='active']{
+    color: tomato;
+}
 .mainLayoutNav a{
     text-decoration: none;
     color: azure;
+
 }
 .mainLayoutNav{
     font-family: Georgia, serif;
@@ -115,16 +120,17 @@ select {
     display: flex;
     flex-direction: column;
 
-    padding: 50px 15px 50px 15px;
+    /*padding: 50px 15px 50px 15px;*/
+    padding: 50px 0 50px 0;
     color: azure;
     height: 100vh;
     background-color: #282c34;
-    width: 25%;
+    min-width: 250px;
 
 }
 .mainLayoutNav hr{
     color: gray;
 }
 .mainLayoutOutlet{
-
+    margin: 20px 30px;
 }

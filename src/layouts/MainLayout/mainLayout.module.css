@@ -1,0 +1,130 @@
+/*---------------------------------------------------------------------------------------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+article > * + * {
+    margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+/*---------------------------------------------------------------------------------------------------------------------*/
+.mainLayoutWrapper{
+    display: flex;
+    width: 100%;
+}
+.mainLayoutLinks{
+    box-sizing: border-box;
+    margin: 50px 0 50px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.mainLayoutLinks a{
+    box-sizing: border-box;
+    margin: 10px 0 10px 0;
+}
+.mainLayoutLogo{
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    font-size: 1.5em;
+    font-family: Georgia, serif;
+    color: lightyellow;
+}
+.mainLayoutHr{
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+
+}
+.mainLayoutNav ul li{
+    list-style: none;
+}
+.mainLayoutNav a{
+    text-decoration: none;
+    color: azure;
+}
+.mainLayoutNav{
+    font-family: Georgia, serif;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px 15px 50px 15px;
+    color: azure;
+    height: 100vh;
+    background-color: #282c34;
+    width: 25%;
+
+}
+.mainLayoutNav hr{
+    color: gray;
+}
+.mainLayoutOutlet{
+
+}

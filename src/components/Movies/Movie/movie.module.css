@@ -1,0 +1,16 @@
+.imgWrapper{
+    position: relative;
+
+    overflow: hidden;
+    border-radius: 8px;
+}
+.titleWrapper{
+    position: absolute;
+    z-index: 1;
+
+    color: gold;
+}
+.movieWrapper{
+    margin-bottom: 50px;
+    width: 350px;
+}

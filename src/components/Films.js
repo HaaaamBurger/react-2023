@@ -1,6 +1,15 @@
 import React from 'react';
+import {useEffect,useState} from 'react';
+
+import {axiosServices} from '../services/axiosServices'
 
 const Films = () => {
+    const [films,setFilms] = useState();
+    useEffect(() => {
+        axiosServices.getFilms().then(({data}) => setFilms(data));
+    })
+
+    console.log(films)
     // const options = {
     //     method: 'GET',
     //     headers: {
@@ -13,6 +22,7 @@ const Films = () => {
     //     .then(response => response.json())
     //     .then(response => console.log(response))
     //     .catch(err => console.error(err));
+
     return (
         <div>
             Films

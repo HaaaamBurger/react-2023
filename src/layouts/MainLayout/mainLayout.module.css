@@ -109,7 +109,7 @@ select {
 }
 
 .mainLayoutLinks a[class='active']{
-    color: tomato;
+    color: gray;
 }
 .mainLayoutNav a{
     text-decoration: none;
@@ -136,7 +136,10 @@ select {
     color: gray;
 }
 .mainLayoutOutlet{
-    width: 100%;
-    margin-left: 250px;
-    padding: 30px 30px 0 30px;
+    width: auto;
+    position: relative;
+    left: 350px;
+    /*margin-left: 250px;*/
+    /*padding: 30px 30px 0 30px;*/
+    padding-top: 50px;
 }

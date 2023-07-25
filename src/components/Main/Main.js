@@ -4,7 +4,7 @@ import styles from './main.module.css'
 const Main = () => {
     return (
         <div className={styles.mainWrapper}>
-            Hello
+            <p>Yoru Films</p>
         </div>
     );
 };

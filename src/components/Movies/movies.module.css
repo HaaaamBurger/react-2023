@@ -1,29 +1,7 @@
 .moviesWrapper{
-    width: 100%;
-    position: relative;
-    left: 350px;
-    padding-top: 50px;
-}
-@media screen and (max-width: 660px){
-    .moviesWrapper{
-        column-count: 1;
-    }
-}
-
-@media screen and (min-width: 1050px) and (max-width: 1400px){
-    .moviesWrapper{
-        column-count: 2;
-    }
-}
-
-@media screen and (min-width: 1401px) and (max-width: 1700px){
-    .moviesWrapper{
-        column-count: 3;
-    }
-}
-
-@media screen and (min-width: 1701px){
-    .moviesWrapper{
-        column-count: 4;
-    }
+    padding-top: 100px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

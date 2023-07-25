@@ -1,6 +1,12 @@
 .mainWrapper{
-    position: relative;
-    left: 350px;
-    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+
+}
+.mainWrapper p{
+    color: lightsteelblue;
+    font-size: 7em;
+    font-family: Brush Script MT;
 }

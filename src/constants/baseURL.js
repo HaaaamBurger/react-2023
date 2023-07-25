@@ -1,6 +1,6 @@
 const baseURL = 'https://api.themoviedb.org/3';
 
 const links = {
-    discoverMovies: '/discover/movives',
+    discoverMovies: '/3/discover/movie',
 }
 export {baseURL,links};

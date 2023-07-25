@@ -135,11 +135,3 @@ select {
 .mainLayoutNav hr{
     color: gray;
 }
-.mainLayoutOutlet{
-    width: auto;
-    position: relative;
-    left: 350px;
-    /*margin-left: 250px;*/
-    /*padding: 30px 30px 0 30px;*/
-    padding-top: 50px;
-}

@@ -102,4 +102,5 @@ select {
     background-color: #1d1e25;
     font-family: Georgia, serif;
     font-size: 1.4em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }

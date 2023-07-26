@@ -5,8 +5,10 @@ import {Header} from "../../components/Header/Header";
 
 const MainLayout = () => {
     return (
-        <div style={{backgroundColor: '#282c34'}}>
+        <div>
+            <div>
                 <Header/>
+            </div>
             <div>
                 <Outlet/>
             </div>

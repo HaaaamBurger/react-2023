@@ -32,13 +32,15 @@ const MovieInfo = () => {
 
                         <div className={styles.detailInfo}>
                             <h3>⭐{movie.vote_average} | {movie.vote_count}</h3>
-                            <p>{Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m ・ {movie.genres.map(genre => genre.name + ', ')} ・{movie.release_date.split('-')[0]}</p>
+                            <p>{Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m ・ {movie.genres.map(genre => genre.name + ', ')} ・{movie.release_date.split('-')[0]} ・ {movie.status}</p>
                         </div>
 
                         <div>
                             <h3>{movie.tagline}</h3>
                         </div>
-                        {/*<h4>{movie.overview.split(' ').map((word,index) => index / 4 === 0 ? word + <br/> : word)}</h4>*/}
+                        <div className={styles.overView}>
+                            <p>{movie.overview}</p>
+                        </div>
                         <div className={styles}>
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className={styles.backdropWrapper}/>
                         </div>

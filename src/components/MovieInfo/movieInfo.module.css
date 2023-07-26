@@ -35,6 +35,9 @@
     border-radius: 5px;
     border: 1px solid white;
 }
+.overView{
+    max-width: 500px;
+}
 .detailInfo{
     display: flex;
     margin: 10px 0 10px 0;

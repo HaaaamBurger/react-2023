@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect,useState} from 'react';
 
 import {Movie} from './Movie/Movie'
-import {axiosFilmsServices} from "../../services/axiosFilmsServices";
+import {axiosMoviesServices} from "../../services/axiosMoviesServices";
 import styles from './movies.module.css'
 
 const Movies = () => {
@@ -10,7 +10,7 @@ const Movies = () => {
     const [page,setPage] = useState(1);
 
     useEffect(() => {
-       axiosFilmsServices.getAll(page).then(({data}) => setMovies({total: data.total_pages,results: data.results}))
+       axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: data.total_pages,results: data.results}))
     },[page])
 
     const pageHandleUp = () => {
@@ -28,12 +28,11 @@ const Movies = () => {
                 </div>
 
                 <div className={styles.paginationWrapper}>
-                    <button onClick={pageHandleDown}>Prev</button>
+                    <button onClick={pageHandleDown}>Back</button>
                     <div className={styles.pageCounter}>{page} of {movies?.total}</div>
                     <button onClick={pageHandleUp}>Next</button>
                 </div>
             </div>
-
     )
 };
 

@@ -4,11 +4,13 @@ import {useEffect,useState} from 'react';
 import {Movie} from './Movie/Movie'
 import styles from './movies.module.css'
 import {axiosMoviesServices} from "../../services";
+import {useNavigate} from "react-router-dom";
 
 const Movies = () => {
     const [movies,setMovies] = useState();
     const [page,setPage] = useState(1);
 
+    const navigation = useNavigate();
     useEffect(() => {
        axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: data.total_pages,results: data.results}))
     },[page])
@@ -28,9 +30,15 @@ const Movies = () => {
                 </div>
 
                 <div className={styles.paginationWrapper}>
-                    <button onClick={pageHandleDown}>Back</button>
+                    <button onClick={() => {
+                        pageHandleDown();
+                        // navigation(`/films/${page}`)
+                    }}>Back</button>
                     <div className={styles.pageCounter}>{page} of {movies?.total}</div>
-                    <button onClick={pageHandleUp}>Next</button>
+                    <button onClick={() => {
+                        pageHandleUp();
+                        // navigation(`/films/${page}`)
+                    }}>Next</button>
                 </div>
             </div>
     )

@@ -45,6 +45,8 @@ const MovieInfo = () => {
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className={styles.backdropWrapper}/>
                         </div>
                     </div>
+
+                        <div className={styles.backButton}>Back</div>
                 </div>}
         </div>
     );

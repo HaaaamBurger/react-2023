@@ -2,8 +2,8 @@ import React from 'react';
 import {useEffect,useState} from 'react';
 
 import {Movie} from './Movie/Movie'
-import {axiosMoviesServices} from "../../services/axiosMoviesServices";
 import styles from './movies.module.css'
+import {axiosMoviesServices} from "../../services";
 
 const Movies = () => {
     const [movies,setMovies] = useState();

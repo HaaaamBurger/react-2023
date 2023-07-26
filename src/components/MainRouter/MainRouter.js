@@ -1,9 +1,9 @@
 import {createBrowserRouter} from "react-router-dom";
 
-import {MainLayout} from "../../layouts/MainLayout/MainLayout";
-import {Movies} from "../Movies/Movies";
-import {Main} from "../Main/Main";
-import {MovieInfo} from "../pages/MovieInfo/MovieInfo";
+import {MainLayout} from "../../layouts";
+import {MovieInfo} from "../MovieInfo";
+import {Main} from "../Main";
+import {Movies} from "../Movies";
 
 const router = createBrowserRouter([
     {

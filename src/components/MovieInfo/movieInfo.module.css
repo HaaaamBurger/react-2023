@@ -17,6 +17,7 @@
 }
 .moviePosterWrapper img {
     min-width: 300px;
+    borderRadius:'5px'
 }
 
 .movieInfoWrapper{
@@ -28,4 +29,16 @@
     box-sizing: border-box;
     padding: 30px;
     margin-left: 20px;
+}
+.backdropWrapper{
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+.detailInfo{
+    display: flex;
+    margin: 10px 0 10px 0;
+}
+.detailInfo h3{
+    margin-right: 20px;
 }

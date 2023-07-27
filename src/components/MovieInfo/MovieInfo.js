@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
 
 import styles from './movieInfo.module.css'
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {axiosMovieServices} from "../../services";
 
 const MovieInfo = () => {
+
+    const pageId = JSON.parse(localStorage.getItem('pageId'));
+    const navigation = useNavigate();
+    console.log(pageId)
 
     const [movie,setMovie] = useState(null);
 
@@ -14,7 +18,7 @@ const MovieInfo = () => {
         axiosMovieServices.getAll(movieId).then(({data}) => setMovie(data));
     },[])
 
-    console.log(movie);
+
 
     return (
         <div>
@@ -46,7 +50,10 @@ const MovieInfo = () => {
                         </div>
                     </div>
 
-                        <div className={styles.backButton}>Back</div>
+                        <div className={styles.backButton} onClick={() => {
+                            navigation(`/page/${pageId}`);
+                            localStorage.clear();
+                        }}>Back</div>
                 </div>}
         </div>
     );

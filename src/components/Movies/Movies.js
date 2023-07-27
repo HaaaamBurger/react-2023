@@ -18,7 +18,6 @@ const Movies = () => {
        navigation(`/page/${page}`);
     },[page])
 
-
     useEffect(() => {
        axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: 500,results: data.results}))
     },[page])
@@ -68,8 +67,9 @@ const Movies = () => {
                         </div>
                     </form>
                 </div>
+
                 <div  className={styles.moviesWrapper}>
-                    {movies && movies.results.map(movie => <Movie movie={movie} key={movie.id}/>)}
+                    {movies && movies.results.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
                 </div>
 
                 <div className={styles.paginationWrapper}>

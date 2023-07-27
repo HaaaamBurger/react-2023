@@ -46,6 +46,18 @@
     margin-right: 20px;
 }
 .backButton{
+    font-size: 1.2em;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.79);
+    background-color: cadetblue;
+    color: #d8e5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
     bottom: 50px;
     right: 50px;

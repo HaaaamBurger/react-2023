@@ -12,10 +12,10 @@ const Movies = () => {
 
     const navigation = useNavigate();
     const [movies,setMovies] = useState();
-    const [page,setPage] = useState(1);
+    const [page,setPage] = useState(+pageId.page);
 
     useEffect(() => {
-       navigation(`/films/${page}`);
+       navigation(`/page/${page}`);
     },[page])
 
 
@@ -42,7 +42,7 @@ const Movies = () => {
     console.log(errors)
     const save = (value) => {
         setPage(+value.page);
-        navigation(`/films/${value.page}`);
+        navigation(`/page/${value.page}`);
         reset();
     }
 
@@ -75,12 +75,12 @@ const Movies = () => {
                 <div className={styles.paginationWrapper}>
                     <button onClick={() => {
                         pageHandleDown();
-                        navigation(`/films/${page}`);
+                        navigation(`/page/${page}`);
                     }}>Back</button>
                     <div className={styles.pageCounter}>{page} of {movies?.total}</div>
                     <button onClick={() => {
                         pageHandleUp();
-                        navigation(`/films/${page}`);
+                        navigation(`/page/${page}`);
                     }}>Next</button>
                 </div>
             </div>

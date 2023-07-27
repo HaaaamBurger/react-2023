@@ -3,22 +3,45 @@ import React, {useEffect, useState} from 'react';
 import styles from './movieInfo.module.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {axiosMovieServices} from "../../services";
+import {Rating} from "react-simple-star-rating";
 
 const MovieInfo = () => {
-
     const pageId = JSON.parse(localStorage.getItem('pageId'));
     const navigation = useNavigate();
-    console.log(pageId)
-
-    const [movie,setMovie] = useState(null);
-
     const {id:movieId} = useParams();
 
+    const [movie,setMovie] = useState(null);
+    const [rating, setRating] = useState('Your rate')
+
+    const handleRating = (rate) => {
+        switch (rate) {
+            case 1: {
+                setRating('Terrible');
+                return;
+            }
+            case 2: {
+                setRating('Bad');
+                return;
+            }
+            case 3: {
+                setRating('Good');
+                return;
+            }
+            case 4: {
+                setRating('Great');
+                return;
+            }
+            case 5: {
+                setRating('Awesome');
+                return;
+            }
+        }
+    }
+
+    console.log(rating)
     useEffect(() => {
         axiosMovieServices.getAll(movieId).then(({data}) => setMovie(data));
     },[])
-
-
 
     return (
         <div>
@@ -45,6 +68,14 @@ const MovieInfo = () => {
                         <div className={styles.overView}>
                             <p>{movie.overview}</p>
                         </div>
+
+                        <div className={styles.starsRating}>
+                            <Rating
+                                onClick={handleRating}
+                            />
+                            <div><h3>{rating}</h3></div>
+                        </div>
+
                         <div className={styles}>
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className={styles.backdropWrapper}/>
                         </div>

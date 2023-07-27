@@ -39,7 +39,7 @@
     max-width: 500px;
 }
 .detailInfo{
-    display: flex;
+    /*display: flex;*/
     margin: 10px 0 10px 0;
 }
 .detailInfo h3{

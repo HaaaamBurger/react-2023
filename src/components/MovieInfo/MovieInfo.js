@@ -13,7 +13,30 @@ const MovieInfo = () => {
     const [movie,setMovie] = useState(null);
     const [rating, setRating] = useState('Your rate')
 
+    // let rateMovie = JSON.parse(localStorage.getItem('movieRate'));
+    // let localRate = null;
+
+    // if (rateMovie) {
+    //     rateMovie.find(movie => movie.movieId === movieId ? localRate = movie.rate : null);
+    //     setRating(localRate);
+    // }
+
     const handleRating = (rate) => {
+    //     let rateMovie = JSON.parse(localStorage.getItem('movieRate'));
+    //     if (rateMovie) {
+    //          rateMovie.find(movie => {
+    //              if (movie.movieId === rateMovie.movieId) {
+    //                  rateMovie.push({movieId: movieId, rate: rate});
+    //                  localStorage.setItem('movieRate',JSON.stringify(rateMovie));
+    //              } else {
+    //                  rateMovie.push({movieId: movieId, rate: rate});
+    //                  localStorage.setItem('movieRate',JSON.stringify(rateMovie));
+    //              }
+    //          })
+    //     } else {
+    //         rateMovie.push({movieId: movieId, rate: rate});
+    //         localStorage.setItem('movieRate',JSON.stringify(rateMovie));
+    // }
         switch (rate) {
             case 1: {
                 setRating('Terrible');
@@ -38,7 +61,6 @@ const MovieInfo = () => {
         }
     }
 
-    console.log(rating)
     useEffect(() => {
         axiosMovieServices.getAll(movieId).then(({data}) => setMovie(data));
     },[])
@@ -61,6 +83,7 @@ const MovieInfo = () => {
                             <h3>⭐{movie.vote_average} | {movie.vote_count}</h3>
                             <p>{Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m ・ {movie.genres.map(genre => genre.name + ', ')} ・{movie.release_date.split('-')[0]} ・ {movie.status}</p>
                         </div>
+                        <hr/>
 
                         <div>
                             <h3>{movie.tagline}</h3>
@@ -70,9 +93,7 @@ const MovieInfo = () => {
                         </div>
 
                         <div className={styles.starsRating}>
-                            <Rating
-                                onClick={handleRating}
-                            />
+                            <Rating onClick={handleRating}/>
                             <div><h3>{rating}</h3></div>
                         </div>
 

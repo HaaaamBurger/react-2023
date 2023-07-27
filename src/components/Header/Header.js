@@ -13,7 +13,7 @@ const Header = () => {
             }}>Yoru Films</div>
                 <div className={styles.mainLayoutLinks}>
                     <NavLink to={''}>Main</NavLink>
-                    <NavLink to={'/films'}>Films</NavLink>
+                    <NavLink to={'/films/1'}>Films</NavLink>
                 </div>
         </div>
     );

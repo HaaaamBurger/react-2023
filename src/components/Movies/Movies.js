@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect,useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import styles from './movies.module.css';
 import {useNavigate, useParams} from "react-router-dom";
@@ -10,6 +10,8 @@ import {axiosMoviesServices} from "../../services";
 
 const Movies = () => {
     const pageId = useParams();
+
+    const [genre,setGenre] = useState('none');
 
     const navigation = useNavigate();
     const [movies,setMovies] = useState();
@@ -55,30 +57,35 @@ const Movies = () => {
     }
 
     return (
-            <div style={{paddingBottom: '50px'}}>
+            <div style={{paddingBottom: '50px',minWidth: '605px'}}>
                 <div className={styles.pageSearchWrapper}>
+                    <div className={styles.selectGenreInput}>
+                        <select>
+                            <option>None</option>
+                            {genres.map(genre => <option value={genre} {...register(`${genre.name}`)}>{genre.name}</option>)}
+                        </select>
+                    </div>
                     <form onSubmit={handleSubmit(save)} className={styles.searchForm}>
-                        <div className={styles.selectGenreInput}>
-                            <select>
-                                {genres.map(genre => <option {...register(`${genre.name}`)}>{genre.name}</option>)}
-                            </select>
-                        </div>
                         <div className={styles.pageSearchInput}>
-                            <input type="number" {...register('page', {
-                                max:{
-                                    value: 500,
-                                    message:'Maximum 500 pages!'
-                                },
-                                min:{
-                                    value: 1,
-                                    message: 'Paging starts from first page!'
-                                }
-                            })}/>
-                            <button disabled={!isValid}>Find</button>
+                            <div>
+                                <input type="number" {...register('page', {
+                                    max:{
+                                        value: 500,
+                                        message:'Maximum 500 pages!'
+                                    },
+                                    min:{
+                                        value: 1,
+                                        message: 'Paging starts from first page!'
+                                    },
+                                    required: true
+                                })}/>
+                                <button disabled={!isValid}>Find</button>
+                            </div>
+                            <div className={styles.errorReport}>
+                                {errors.page && <h4>{errors.page.message}</h4>}
+                            </div>
                         </div>
-                        <div className={styles.errorReport}>
-                            {errors.page && <h4>{errors.page.message}</h4>}
-                        </div>
+
                     </form>
                 </div>
 

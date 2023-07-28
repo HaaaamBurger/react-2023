@@ -36,7 +36,7 @@
     justify-content: right;
     align-items: center;
     background-color: #555a6b;
-    padding: 120px 350px 17px 0;
+    padding: 120px 0 17px 0;
 }
 .pageSearchWrapper input {
     box-sizing: border-box;
@@ -57,5 +57,18 @@
 .errorReport{
     margin-top: 10px;
     color: #d8e5f5;
-
+}
+.searchForm{
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.pageSearchInput{
+    position: absolute;
+    right: 15%;
+}
+.selectGenreInput{
+    position: absolute;
+    left: 15%;
 }

@@ -92,6 +92,7 @@ select {
     color: lightsteelblue;
 }
 .mainLayoutNav{
+    z-index: 5;
     opacity: 95%;
     display: flex;
     justify-content: space-around;

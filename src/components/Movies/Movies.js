@@ -48,8 +48,15 @@ const Movies = () => {
     return (
             <div style={{paddingBottom: '50px'}}>
                 <div className={styles.pageSearchWrapper}>
-                    <form onSubmit={handleSubmit(save)}>
-                        <div>
+                    <form onSubmit={handleSubmit(save)} className={styles.searchForm}>
+                        <div className={styles.selectGenreInput}>
+                            <select>
+                                <option>a</option>
+                                <option>s</option>
+                                <option>d</option>
+                            </select>
+                        </div>
+                        <div className={styles.pageSearchInput}>
                             <input type="number" {...register('page', {
                                 max:{
                                     value: 500,

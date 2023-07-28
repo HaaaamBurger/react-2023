@@ -1,11 +1,12 @@
 import React from 'react';
 import {useEffect,useState} from 'react';
 
-import {Movie} from './Movie/Movie'
-import styles from './movies.module.css'
-import {axiosMoviesServices} from "../../services";
+import styles from './movies.module.css';
 import {useNavigate, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
+import {Movie} from './Movie/Movie';
+import {axiosGenresServices} from '../../services/axiosGenresServices';
+import {axiosMoviesServices} from "../../services";
 
 const Movies = () => {
     const pageId = useParams();
@@ -13,14 +14,21 @@ const Movies = () => {
     const navigation = useNavigate();
     const [movies,setMovies] = useState();
     const [page,setPage] = useState(+pageId.page);
+    const [genres,setGenres] = useState([]);
 
     useEffect(() => {
        navigation(`/page/${page}`);
-    },[page])
+    },[page]);
 
     useEffect(() => {
        axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: 500,results: data.results}))
-    },[page])
+    },[page]);
+
+    useEffect(() => {
+        axiosGenresServices.getAll().then(({data}) => setGenres(data.genres))
+    },[]);
+
+    console.log(genres)
 
     const pageHandleUp = () => {
         setPage(prevState => prevState !== movies.total ? prevState + 1 : prevState = movies.total);
@@ -40,6 +48,7 @@ const Movies = () => {
 
     console.log(errors)
     const save = (value) => {
+        console.log(value)
         setPage(+value.page);
         navigation(`/page/${value.page}`);
         reset();
@@ -51,9 +60,7 @@ const Movies = () => {
                     <form onSubmit={handleSubmit(save)} className={styles.searchForm}>
                         <div className={styles.selectGenreInput}>
                             <select>
-                                <option>a</option>
-                                <option>s</option>
-                                <option>d</option>
+                                {genres.map(genre => <option {...register(`${genre.name}`)}>{genre.name}</option>)}
                             </select>
                         </div>
                         <div className={styles.pageSearchInput}>

@@ -13,30 +13,7 @@ const MovieInfo = () => {
     const [movie,setMovie] = useState(null);
     const [rating, setRating] = useState('Your rate')
 
-    // let rateMovie = JSON.parse(localStorage.getItem('movieRate'));
-    // let localRate = null;
-
-    // if (rateMovie) {
-    //     rateMovie.find(movie => movie.movieId === movieId ? localRate = movie.rate : null);
-    //     setRating(localRate);
-    // }
-
     const handleRating = (rate) => {
-    //     let rateMovie = JSON.parse(localStorage.getItem('movieRate'));
-    //     if (rateMovie) {
-    //          rateMovie.find(movie => {
-    //              if (movie.movieId === rateMovie.movieId) {
-    //                  rateMovie.push({movieId: movieId, rate: rate});
-    //                  localStorage.setItem('movieRate',JSON.stringify(rateMovie));
-    //              } else {
-    //                  rateMovie.push({movieId: movieId, rate: rate});
-    //                  localStorage.setItem('movieRate',JSON.stringify(rateMovie));
-    //              }
-    //          })
-    //     } else {
-    //         rateMovie.push({movieId: movieId, rate: rate});
-    //         localStorage.setItem('movieRate',JSON.stringify(rateMovie));
-    // }
         switch (rate) {
             case 1: {
                 setRating('Terrible');

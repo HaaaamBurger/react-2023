@@ -11,9 +11,10 @@ import {axiosMoviesServices} from "../../services";
 const Movies = () => {
     const pageId = useParams();
 
-    const [genre,setGenre] = useState('none');
-
     const navigation = useNavigate();
+
+    const [genre,setGenre] = useState(null);
+    const [selectedGenre, setSelectedGenre] = useState('');
     const [movies,setMovies] = useState();
     const [page,setPage] = useState(+pageId.page);
     const [genres,setGenres] = useState([]);
@@ -23,14 +24,12 @@ const Movies = () => {
     },[page]);
 
     useEffect(() => {
-       axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: 500,results: data.results}))
-    },[page]);
+       axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: 500,results: data.results}));
+    },[page,genre]);
 
     useEffect(() => {
         axiosGenresServices.getAll().then(({data}) => setGenres(data.genres))
     },[]);
-
-    console.log(genres)
 
     const pageHandleUp = () => {
         setPage(prevState => prevState !== movies.total ? prevState + 1 : prevState = movies.total);
@@ -50,19 +49,23 @@ const Movies = () => {
 
     console.log(errors)
     const save = (value) => {
-        console.log(value)
         setPage(+value.page);
         navigation(`/page/${value.page}`);
         reset();
     }
 
+    const handleGenre = (event) => {
+        setGenre(event.target.value);
+    }
+
+    let genresMovie = [];
     return (
             <div style={{paddingBottom: '50px',minWidth: '605px'}}>
                 <div className={styles.pageSearchWrapper}>
                     <div className={styles.selectGenreInput}>
-                        <select>
+                        <select onChange={handleGenre}>
                             <option>None</option>
-                            {genres.map(genre => <option value={genre} {...register(`${genre.name}`)}>{genre.name}</option>)}
+                            {genres.map(genre => <option value={genre.id} {...register(`${genre.name}`)}>{genre.name}</option>)}
                         </select>
                     </div>
                     <form onSubmit={handleSubmit(save)} className={styles.searchForm}>
@@ -91,6 +94,24 @@ const Movies = () => {
 
                 <div  className={styles.moviesWrapper}>
                     {movies && movies.results.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
+                        // movies ?
+                        //     movies.results.map(movie => {
+                        //         <Movie movie={movie} key={movie.id} pageId={page}/>
+                        //
+                        //     }) :
+                        //     genre ?
+                        //         movies.results.forEach(movie => {
+                        //             setGenresMovie([]);
+                        //             for(let movieGenre of movie.genre_ids) {
+                        //                 if (movieGenre === +genre) {
+                        //                     genresMovie.push(movie);
+                        //                 }
+                        //             }
+                        //             genresMovie.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>);
+                        //             setGenre(null);
+                        //             console.log(genresMovie);
+                        //         }) : null
+                    }
                 </div>
 
                 <div className={styles.paginationWrapper}>

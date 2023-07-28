@@ -32,12 +32,13 @@
     margin: 0 15px 0 15px;
 }
 .pageSearchWrapper{
-    display: flex;
-    justify-content: right;
-    align-items: center;
     background-color: #555a6b;
-    padding: 120px 0 17px 0;
+    padding-top: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
+
 .pageSearchWrapper input {
     box-sizing: border-box;
     padding-left: 8px;
@@ -60,16 +61,15 @@
 }
 .searchForm{
     position: relative;
-    width: 100%;
     margin-bottom: 15px;
 }
 .pageSearchInput{
-    position: absolute;
-    right: 15%;
+    /*position: absolute;*/
+    /*right: 15%;*/
 }
 .selectGenreInput{
-    position: absolute;
-    left: 15%;
+    /*position: absolute;*/
+    /*left: 15%;*/
 }
 .selectGenreInput select{
     box-sizing: border-box;

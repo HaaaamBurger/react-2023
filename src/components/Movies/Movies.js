@@ -23,25 +23,14 @@ const Movies = () => {
        navigation(`/page/${page}`);
     },[page]);
 
-    // useEffect(() => {
-    //    axiosMoviesServices.getAll(page).then(({data}) => setMovies(data.results));
-    // },[page]);
-
-    useEffect(() => {
-        axiosMoviesServices.getAll(page).then(({ data }) => {
-            setMovies(data.results);
-            setAllMovies(data.results); // Оновлюємо allMovies з новими даними про фільми.
-        });
-    }, [page]);
-
     useEffect(() => {
         axiosGenresServices.getAll().then(({data}) => setGenres(data.genres))
     },[]);
 
     useEffect(() => {
-        axiosMoviesServices.getAll(page).then(({ data }) => {
+        axiosMoviesServices.getAll(page).then(({data}) => {
             setMovies(data.results);
-            setAllMovies(data.results); // Оновлюємо allMovies з новими даними про фільми.
+            setAllMovies(data.results);
         });
     }, [page]);
 
@@ -71,6 +60,7 @@ const Movies = () => {
 
     const handleGenre = (event) => {
         const selectedGenreId = parseInt(event.target.value, 10);
+
         if (selectedGenreId === 0) {
             setMovies(allMovies);
         } else {
@@ -131,24 +121,6 @@ const Movies = () => {
 
                 <div  className={styles.moviesWrapper}>
                     {movies && movies.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
-                        {/*// movies ?*/}
-                        {/*//     movies.results.map(movie => {*/}
-                        {/*//         <Movie movie={movie} key={movie.id} pageId={page}/>*/}
-                        {/*//*/}
-                        {/*//     }) :*/}
-                        {/*//     genre ?*/}
-                        {/*//         movies.results.forEach(movie => {*/}
-                        {/*//             setGenresMovie([]);*/}
-                        {/*//             for(let movieGenre of movie.genre_ids) {*/}
-                        {/*//                 if (movieGenre === +genre) {*/}
-                        {/*//                     genresMovie.push(movie);*/}
-                        {/*//                 }*/}
-                        {/*//             }*/}
-                        {/*//             genresMovie.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>);*/}
-                        {/*//             setGenre(null);*/}
-                        {/*//             console.log(genresMovie);*/}
-                        {/*//         }) : null*/}
-                    {/*}*/}
                 </div>
 
                 <div className={styles.paginationWrapper}>

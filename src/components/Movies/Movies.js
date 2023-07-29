@@ -63,7 +63,13 @@ const Movies = () => {
             setMovies(allMovies);
         } else {
             const moviesWithGenre = allMovies.filter((movie) => movie.genre_ids.includes(selectedGenreId));
-            setMovies(moviesWithGenre);
+            if (moviesWithGenre.length === 0) {
+                alert('No movies with this genre!');
+                event.target.value = 0;
+                setMovies(allMovies);
+            } else {
+                setMovies(moviesWithGenre);
+            }
         }
         setSortMovie((prevState) => !prevState);
     };

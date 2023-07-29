@@ -55,6 +55,7 @@ const Movies = () => {
         reset();
     }
 
+    // const resetOption =
     const handleGenre = (event) => {
         const selectedGenreId = +event.target.value;
         if (selectedGenreId === 0) {
@@ -105,7 +106,7 @@ const Movies = () => {
                 </div>
 
                 <div  className={styles.moviesWrapper}>
-                    {movies && movies.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
+                    {movies && movies.map((movie,index) => <Movie movie={movie} key={index} pageId={page}/>)}
                 </div>
 
                 <div className={styles.paginationWrapper}>

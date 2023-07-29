@@ -24,15 +24,17 @@ const Movies = () => {
     },[page]);
 
     useEffect(() => {
-       axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: 500,results: data.results}));
+       axiosMoviesServices.getAll(page).then(({data}) => setMovies(data.results));
     },[page]);
 
     useEffect(() => {
         axiosGenresServices.getAll().then(({data}) => setGenres(data.genres))
     },[]);
 
+
+
     const pageHandleUp = () => {
-        setPage(prevState => prevState !== movies.total ? prevState + 1 : prevState = movies.total);
+        setPage(prevState => prevState !== 500 ? prevState + 1 : prevState = 500);
     }
 
     const pageHandleDown = () => {
@@ -55,11 +57,19 @@ const Movies = () => {
     }
 
     const handleGenre = (event) => {
-        setGenre(event.target.value);
-        console.log(+event.target.value)
+        const genresMovie = [];
+        movies.forEach(movie => {
+            for (let genre of movie.genre_ids) {
+                if (genre === +event.target.value) {
+                    genresMovie.push(movie);
+                }
+            }
+        })
+        setMovies(genresMovie);
     }
 
-    let genresMovie = [];
+    console.log(movies);
+
     return (
             <div style={{paddingBottom: '50px',minWidth: '605px'}}>
                 <div className={styles.pageSearchWrapper}>
@@ -94,7 +104,7 @@ const Movies = () => {
                 </div>
 
                 <div  className={styles.moviesWrapper}>
-                    {movies && movies.results.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
+                    {movies && movies.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
                         {/*// movies ?*/}
                         {/*//     movies.results.map(movie => {*/}
                         {/*//         <Movie movie={movie} key={movie.id} pageId={page}/>*/}
@@ -120,7 +130,7 @@ const Movies = () => {
                         pageHandleDown();
                         navigation(`/page/${page}`);
                     }}>Back</button>
-                    <div className={styles.pageCounter}>{page} of {movies?.total}</div>
+                    <div className={styles.pageCounter}>{page} of 500</div>
                     <button onClick={() => {
                         pageHandleUp();
                         navigation(`/page/${page}`);

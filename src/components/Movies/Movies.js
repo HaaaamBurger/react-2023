@@ -5,15 +5,13 @@ import styles from './movies.module.css';
 import {useNavigate, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {Movie} from './Movie/Movie';
-import {axiosGenresServices} from '../../services/axiosGenresServices';
-import {axiosMoviesServices} from "../../services";
+import {axiosGenresServices, axiosMoviesServices} from "../../services";
 
 const Movies = () => {
     const pageId = useParams();
 
     const navigation = useNavigate();
 
-    const [sortMovie,setSortMovie] = useState(null);
     const [movies,setMovies] = useState();
     const [page,setPage] = useState(+pageId.page);
     const [genres,setGenres] = useState([]);
@@ -64,14 +62,13 @@ const Movies = () => {
         } else {
             const moviesWithGenre = allMovies.filter((movie) => movie.genre_ids.includes(selectedGenreId));
             if (moviesWithGenre.length === 0) {
-                alert('No movies with this genre!');
+                alert('No movies with that genre!');
                 event.target.value = 0;
                 setMovies(allMovies);
             } else {
                 setMovies(moviesWithGenre);
             }
         }
-        setSortMovie((prevState) => !prevState);
     };
 
     return (

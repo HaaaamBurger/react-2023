@@ -1,4 +1,4 @@
-import {apiServices} from '../services/apiServices';
+import {apiServices} from "./apiServices";
 import {links} from '../constants/baseURL';
 
 const axiosGenresServices = {

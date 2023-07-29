@@ -11,9 +11,44 @@ const MovieInfo = () => {
     const {id:movieId} = useParams();
 
     const [movie,setMovie] = useState(null);
-    const [rating, setRating] = useState('Your rate')
+    const [rating, setRating] = useState('Your rate');
+
+
+
+    // localStorage.setItem('rate', JSON.stringify([{rate: 5,id: '900667'}]));
+
+    const localRate = JSON.parse(localStorage.getItem('rate'));
+    const findRatedFilm = localRate.find(rate => rate.id === movieId);
+    if (findRatedFilm) {
+        switch (findRatedFilm.rate) {
+            case 1: {
+                setRating('Terrible');
+                return;
+            }
+            case 2: {
+                setRating('Bad');
+                return;
+            }
+            case 3: {
+                setRating('Good');
+                return;
+            }
+            case 4: {
+                setRating('Great');
+                return;
+            }
+            case 5: {
+                setRating('Awesome');
+                return;
+            }
+        }
+    }
+
+    console.log(findRatedFilm);
 
     const handleRating = (rate) => {
+
+
         switch (rate) {
             case 1: {
                 setRating('Terrible');
@@ -70,7 +105,7 @@ const MovieInfo = () => {
                         </div>
 
                         <div className={styles.starsRating}>
-                            <Rating onClick={handleRating}/>
+                            <Rating  onClick={handleRating} initialValue={findRatedFilm?.rate}/>
                             <div><h3>{rating}</h3></div>
                         </div>
 
@@ -81,7 +116,7 @@ const MovieInfo = () => {
 
                         <div className={styles.backButton} onClick={() => {
                             navigation(`/page/${pageId}`);
-                            localStorage.clear();
+                            localStorage.removeItem('id')
                         }}>Back</div>
                 </div>}
         </div>

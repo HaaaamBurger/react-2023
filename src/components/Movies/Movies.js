@@ -57,10 +57,8 @@ const Movies = () => {
         reset();
     }
 
-
     const handleGenre = (event) => {
-        const selectedGenreId = parseInt(event.target.value, 10);
-
+        const selectedGenreId = +event.target.value;
         if (selectedGenreId === 0) {
             setMovies(allMovies);
         } else {
@@ -69,29 +67,13 @@ const Movies = () => {
         }
         setSortMovie((prevState) => !prevState);
     };
-    // const handleGenre = (event) => {
-
-        // let genresMovie = [];
-        // movies.map(movie => {
-        //     for (let genre of movie.genre_ids) {
-        //         if (genre === +event.target.value) {
-        //             genresMovie.push(movie);
-        //         }
-        //     }
-        // })
-        // setSortMovie(prevState => !prevState);
-        // setMovies(genresMovie);
-
-    // }
-
-    console.log(movies);
 
     return (
             <div style={{paddingBottom: '50px',minWidth: '605px'}}>
                 <div className={styles.pageSearchWrapper}>
                     <div className={styles.selectGenreInput}>
                         <select onChange={handleGenre}>
-                            <option>None</option>
+                            <option value={0}>None</option>
                             {genres.map(genre => <option value={genre.id} {...register(`${genre.name}`)}>{genre.name}</option>)}
                         </select>
                     </div>

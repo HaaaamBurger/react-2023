@@ -13,24 +13,37 @@ const Movies = () => {
 
     const navigation = useNavigate();
 
-    const [genre,setGenre] = useState(null);
-    // const [selectedGenre, setSelectedGenre] = useState('');
+    const [sortMovie,setSortMovie] = useState(null);
     const [movies,setMovies] = useState();
     const [page,setPage] = useState(+pageId.page);
     const [genres,setGenres] = useState([]);
+    const [allMovies, setAllMovies] = useState([]);
 
     useEffect(() => {
        navigation(`/page/${page}`);
     },[page]);
 
+    // useEffect(() => {
+    //    axiosMoviesServices.getAll(page).then(({data}) => setMovies(data.results));
+    // },[page]);
+
     useEffect(() => {
-       axiosMoviesServices.getAll(page).then(({data}) => setMovies(data.results));
-    },[page]);
+        axiosMoviesServices.getAll(page).then(({ data }) => {
+            setMovies(data.results);
+            setAllMovies(data.results); // Оновлюємо allMovies з новими даними про фільми.
+        });
+    }, [page]);
 
     useEffect(() => {
         axiosGenresServices.getAll().then(({data}) => setGenres(data.genres))
     },[]);
 
+    useEffect(() => {
+        axiosMoviesServices.getAll(page).then(({ data }) => {
+            setMovies(data.results);
+            setAllMovies(data.results); // Оновлюємо allMovies з новими даними про фільми.
+        });
+    }, [page]);
 
 
     const pageHandleUp = () => {
@@ -49,24 +62,37 @@ const Movies = () => {
         mode: 'all'
     })
 
-    console.log(errors)
     const save = (value) => {
         setPage(+value.page);
         navigation(`/page/${value.page}`);
         reset();
     }
 
+
     const handleGenre = (event) => {
-        const genresMovie = [];
-        movies.forEach(movie => {
-            for (let genre of movie.genre_ids) {
-                if (genre === +event.target.value) {
-                    genresMovie.push(movie);
-                }
-            }
-        })
-        setMovies(genresMovie);
-    }
+        const selectedGenreId = parseInt(event.target.value, 10);
+        if (selectedGenreId === 0) {
+            setMovies(allMovies);
+        } else {
+            const moviesWithGenre = allMovies.filter((movie) => movie.genre_ids.includes(selectedGenreId));
+            setMovies(moviesWithGenre);
+        }
+        setSortMovie((prevState) => !prevState);
+    };
+    // const handleGenre = (event) => {
+
+        // let genresMovie = [];
+        // movies.map(movie => {
+        //     for (let genre of movie.genre_ids) {
+        //         if (genre === +event.target.value) {
+        //             genresMovie.push(movie);
+        //         }
+        //     }
+        // })
+        // setSortMovie(prevState => !prevState);
+        // setMovies(genresMovie);
+
+    // }
 
     console.log(movies);
 

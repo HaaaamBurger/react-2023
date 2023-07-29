@@ -56,6 +56,7 @@ const Movies = () => {
 
     const handleGenre = (event) => {
         setGenre(event.target.value);
+        console.log(+event.target.value)
     }
 
     let genresMovie = [];

@@ -14,7 +14,7 @@ const Movies = () => {
     const navigation = useNavigate();
 
     const [genre,setGenre] = useState(null);
-    const [selectedGenre, setSelectedGenre] = useState('');
+    // const [selectedGenre, setSelectedGenre] = useState('');
     const [movies,setMovies] = useState();
     const [page,setPage] = useState(+pageId.page);
     const [genres,setGenres] = useState([]);
@@ -25,7 +25,7 @@ const Movies = () => {
 
     useEffect(() => {
        axiosMoviesServices.getAll(page).then(({data}) => setMovies({total: 500,results: data.results}));
-    },[page,genre]);
+    },[page]);
 
     useEffect(() => {
         axiosGenresServices.getAll().then(({data}) => setGenres(data.genres))
@@ -94,24 +94,24 @@ const Movies = () => {
 
                 <div  className={styles.moviesWrapper}>
                     {movies && movies.results.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>)}
-                        // movies ?
-                        //     movies.results.map(movie => {
-                        //         <Movie movie={movie} key={movie.id} pageId={page}/>
-                        //
-                        //     }) :
-                        //     genre ?
-                        //         movies.results.forEach(movie => {
-                        //             setGenresMovie([]);
-                        //             for(let movieGenre of movie.genre_ids) {
-                        //                 if (movieGenre === +genre) {
-                        //                     genresMovie.push(movie);
-                        //                 }
-                        //             }
-                        //             genresMovie.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>);
-                        //             setGenre(null);
-                        //             console.log(genresMovie);
-                        //         }) : null
-                    }
+                        {/*// movies ?*/}
+                        {/*//     movies.results.map(movie => {*/}
+                        {/*//         <Movie movie={movie} key={movie.id} pageId={page}/>*/}
+                        {/*//*/}
+                        {/*//     }) :*/}
+                        {/*//     genre ?*/}
+                        {/*//         movies.results.forEach(movie => {*/}
+                        {/*//             setGenresMovie([]);*/}
+                        {/*//             for(let movieGenre of movie.genre_ids) {*/}
+                        {/*//                 if (movieGenre === +genre) {*/}
+                        {/*//                     genresMovie.push(movie);*/}
+                        {/*//                 }*/}
+                        {/*//             }*/}
+                        {/*//             genresMovie.map(movie => <Movie movie={movie} key={movie.id} pageId={page}/>);*/}
+                        {/*//             setGenre(null);*/}
+                        {/*//             console.log(genresMovie);*/}
+                        {/*//         }) : null*/}
+                    {/*}*/}
                 </div>
 
                 <div className={styles.paginationWrapper}>

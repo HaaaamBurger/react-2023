@@ -1,6 +1,5 @@
 .favouritesWrapper{
-}
-.favouritesWrapper{
+    height: 100%;
     padding-top: 120px;
     text-align: center;
     display: flex;

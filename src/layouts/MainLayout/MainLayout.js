@@ -6,11 +6,11 @@ import {Header} from "../../components/Header";
 
 const MainLayout = () => {
     return (
-        <div class={'layoutWrapper'}>
+        <div class={'layoutWrapper'} style={{height: '100vh', overflow: 'auto'}}>
             <div>
                 <Header/>
             </div>
-            <div>
+            <div style={{height: '100%',overflow: 'auto'}}>
                 <Outlet/>
             </div>
         </div>

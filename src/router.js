@@ -1,5 +1,6 @@
 import React from 'react';
-import {MainLayout} from "./layouts/MainLayout/MainLayout";
+
+import {MainLayout} from "./layouts";
 
 const Router = () => {
     return (

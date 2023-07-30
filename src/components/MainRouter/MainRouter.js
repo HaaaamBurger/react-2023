@@ -25,7 +25,7 @@ const router = createBrowserRouter([
                 element: <MovieInfo/>
             },
             {
-                path: '/favourites',
+                path: 'favourites',
                 element: <Favourites/>
             }
         ]

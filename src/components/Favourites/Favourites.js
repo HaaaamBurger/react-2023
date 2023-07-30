@@ -18,10 +18,10 @@ const Favourites = () => {
     },[getFavMovies]);
 
     return (
-        <div className={styles.favouritesWrapper}>
+        <div>
             {
                 favMovies.length ?
-                    <div>
+                    <div className={styles.favouritesWrapper}>
                         {favMovies && favMovies.map((movie,index) => <FavMovie movie={movie} key={index}/>)}
                         <button className={styles.clearButton} onClick={() => {
                             localStorage.removeItem('favourites');

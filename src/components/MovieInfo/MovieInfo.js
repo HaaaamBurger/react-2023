@@ -115,6 +115,18 @@ const MovieInfo = () => {
                         <div className={styles}>
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className={styles.backdropWrapper}/>
                         </div>
+
+                        <div className={styles.favWrapper} onClick={() => {
+                            let getFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+                            const getMovie = getFavourites.find(favMovie => favMovie.id === +movieId) || null;
+                            if (!getMovie) {
+                                getFavourites.push(movie);
+                                localStorage.setItem('favourites',JSON.stringify(getFavourites));
+                            }
+                        }}>
+                            <h3>Add to Favourite</h3>
+                        </div>
+
                     </div>
 
                         <div className={styles.backButton} onClick={() => {

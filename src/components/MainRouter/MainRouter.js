@@ -5,6 +5,7 @@ import {MovieInfo} from "../MovieInfo";
 import {Main} from "../Main";
 import {Movies} from "../Movies";
 import {Favourites} from "../Favourites/Favourites";
+import {NoFavourites} from "../Favourites/NoFavourites";
 
 const router = createBrowserRouter([
     {

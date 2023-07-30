@@ -66,3 +66,14 @@
     padding: 5px 15px 5px 15px;
     border-radius: 4px;
 }
+.favWrapper{
+    text-align: center;
+    width: 200px;
+    margin-top: 30px;
+    background-color: #4c4f5d;
+    padding: 5px 15px 5px 15px;
+    border-radius: 4px;
+}
+.favWrapper:hover{
+    background-color: #3c3e4b;
+}

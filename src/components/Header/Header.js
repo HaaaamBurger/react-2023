@@ -13,19 +13,21 @@ const Header = () => {
                 navigation('')
             }}>Yoru Films</div>
                 <div className={styles.mainLayoutLinks}>
+
                     <NavLink to={''}>Main</NavLink>
                     <NavLink to={'/page/1'}>Films</NavLink>
                     <NavLink to={'/favourites'}>Favourites</NavLink>
 
+                    <div class={'themeWrapper'} style={{display: 'flex', alignItems: 'center'}}>
+                        <button onClick={() => {
+                            const mainLayout = document.getElementsByClassName('layoutWrapper')[0];
+                            mainLayout.classList.toggle(styles.blackTheme);
 
-                    <button onClick={() => {
-                        const mainLayout = document.getElementsByClassName('layoutWrapper')[0];
-                        mainLayout.classList.toggle(styles.blackTheme);
+                            let buttonSwitch = document.querySelector('.themeWrapper > button')
+                            buttonSwitch.classList.toggle(styles.switchTheme);
+                        }} className={styles.defaultTheme} ></button>
 
-                        // let buttonSwitch = document.getElementsByClassName('switchButton')[0];
-                        // buttonSwitch.classList.toggle(styles.switchTheme);
-                        // console.log(buttonSwitch)
-                    }} class={'switchButton'}></button>
+                    </div>
                 </div>
 
         </div>

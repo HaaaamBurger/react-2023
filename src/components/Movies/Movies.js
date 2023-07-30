@@ -84,7 +84,7 @@ const Movies = () => {
                     <form onSubmit={handleSubmit(save)} className={styles.searchForm}>
                         <div className={styles.pageSearchInput}>
                             <div>
-                                <input type="number" {...register('page', {
+                                <input type="number" placeholder={'type page '} {...register('page', {
                                     max:{
                                         value: 500,
                                         message:'Maximum 500 pages!'

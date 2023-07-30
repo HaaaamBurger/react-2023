@@ -74,6 +74,14 @@ select {
     }
 }
 /*---------------------------------------------------------------------------------------------------------------------*/
+.blackTheme{
+    background-color: #0c0e10;
+}
+.mainLayoutLinks{
+    display: flex;
+    /*flex-direction: column;*/
+    align-items: center;
+}
 .mainLayoutLinks a{
     box-sizing: border-box;
     margin: 0 10px 0 10px;
@@ -84,6 +92,19 @@ select {
     color: lightsteelblue;
 }
 
+.mainLayoutLinks button{
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, #0c0e10 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+    width: 80px;
+    height: 30px;
+    margin-left: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.mainLayoutLinks button:hover{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, #0c0e10 50%);
+}
 .mainLayoutLinks a[class='active']{
     text-decoration: underline;
 }

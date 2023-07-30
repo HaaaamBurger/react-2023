@@ -14,7 +14,14 @@ const Header = () => {
                 <div className={styles.mainLayoutLinks}>
                     <NavLink to={''}>Main</NavLink>
                     <NavLink to={'/page/1'}>Films</NavLink>
+                    <NavLink to={'/favourites'}>Favourites</NavLink>
+
+                    <button onClick={() => {
+                        const mainLayout = document.getElementsByClassName('layoutWrapper')[0];
+                        mainLayout.classList.toggle(styles.blackTheme);
+                    }}></button>
                 </div>
+
         </div>
     );
 };

@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import styles from './favourites.module.css'
 import {NoFavourites} from "./NoFavourites";
 import {FavMovie} from "./FavMovie/FavMovie";
-import {useNavigate} from "react-router-dom";
 
 const Favourites = () => {
 

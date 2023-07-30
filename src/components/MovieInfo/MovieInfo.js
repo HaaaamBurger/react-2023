@@ -12,10 +12,14 @@ const MovieInfo = () => {
 
     const [movie,setMovie] = useState(null);
     const [rating, setRating] = useState('Your rate');
+    const [pageTrigger,setPageTrigger] = useState(null);
 
     useEffect(() => {
-        axiosMovieServices.getAll(movieId).then(({data}) => setMovie(data));
-    },[])
+        axiosMovieServices.getAll(movieId).then(({data}) => {
+            setMovie({...data,pageId: pageId})
+        });
+    },[pageTrigger])
+
 
     let localRate = JSON.parse(localStorage.getItem('rate')) || [];
     const findRatedFilm = localRate.find(rate => rate.id === movieId);
@@ -80,6 +84,23 @@ const MovieInfo = () => {
         }
     }
 
+    const getFavouriteMovie = JSON.parse(localStorage.getItem('favourites')) || [];
+    const currentMovie = getFavouriteMovie.find(favMovie => favMovie.id === +movieId);
+
+    const addToFavourites = () => {
+        let getFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        const getMovie = getFavourites.find(favMovie => favMovie.id === +movieId) || null;
+        if (!getMovie) {
+            getFavourites.push(movie);
+            localStorage.setItem('favourites',JSON.stringify(getFavourites));
+        }
+    }
+
+    const deleteFromFavourites = () => {
+        const newFavourites = getFavouriteMovie.filter(favMovie => favMovie.id !== +movieId);
+        localStorage.setItem('favourites', JSON.stringify(newFavourites));
+    }
+
     return (
         <div>
             {movie &&
@@ -116,15 +137,15 @@ const MovieInfo = () => {
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="" className={styles.backdropWrapper}/>
                         </div>
 
-                        <div className={styles.favWrapper} onClick={() => {
-                            let getFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
-                            const getMovie = getFavourites.find(favMovie => favMovie.id === +movieId) || null;
-                            if (!getMovie) {
-                                getFavourites.push(movie);
-                                localStorage.setItem('favourites',JSON.stringify(getFavourites));
-                            }
-                        }}>
-                            <h3>Add to Favourite</h3>
+                        <div className={styles.favWrapper}>
+                            { !currentMovie ? <h3 onClick={() => {
+                                addToFavourites();
+                                setPageTrigger(prevState => !prevState);
+                            }}>Add to Favourites</h3> : <h3 onClick={() => {
+                                deleteFromFavourites();
+                                setPageTrigger(prevState => !prevState);
+                            }}>Delete from Favourites</h3>}
+
                         </div>
 
                     </div>

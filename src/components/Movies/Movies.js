@@ -32,7 +32,6 @@ const Movies = () => {
         });
     }, [page]);
 
-
     const pageHandleUp = () => {
         setPage(prevState => prevState !== 500 ? prevState + 1 : prevState = 500);
     }

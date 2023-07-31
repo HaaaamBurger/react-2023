@@ -1,22 +1,28 @@
 import React from 'react';
 
-import {jsonServices} from "../../services/jsonServices";
 import {Post} from "./Post/Post";
+import {jsonServices} from "../../services";
 
 class Posts extends React.Component{
     constructor() {
         super();
-        this.state = [];
+        this.state = {};
     }
 
     componentDidMount() {
         jsonServices.getPosts().then(({data}) => this.setState(data));
     }
     render() {
-        console.log(this.state);
+
+        let data = [];
+        if (this.state) {
+            for (let post in this.state) {
+                data.push(this.state[post]);
+            }
+        }
+
         return(
-            <div></div>
-            // <div>{this.state.map(post => <Post post={post}/>)}</div>
+            <div>{data.map(post => <Post post={post} key={post.id}/>)}</div>
         )
     }
 }

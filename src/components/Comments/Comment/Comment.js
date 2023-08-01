@@ -1,17 +1,17 @@
 import React from 'react';
 
 class Comment extends React.Component{
-    constructor({comment}) {
-        super({comment});
-        this.comment = comment;
+    constructor(props) {
+        super(props);
     }
 
     render() {
+        const {name,email,body} = this.props.comment
         return(
-            <div>
-                <div>{this.comment.name}</div>
-                <div>{this.comment.email}</div>
-                <div>{this.comment.body}</div>
+            <div style={{margin: '10px'}}>
+                <div>{name}</div>
+                <div>{email}</div>
+                <div>{body}</div>
             </div>
         )
     }

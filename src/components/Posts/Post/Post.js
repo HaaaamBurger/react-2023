@@ -1,17 +1,17 @@
 import React from 'react';
 
 class Post extends React.Component{
-    constructor({post}) {
-        super({post});
-        this.post = post;
+    constructor(props) {
+        super(props);
     }
 
     render() {
+        const {id,title,body} = this.props.post;
         return(
             <div>
-                <div>{this.post.id}</div>
-                <div>{this.post.title}</div>
-                <div>{this.post.body}</div>
+                <div>{id}</div>
+                <div>{title}</div>
+                <div>{body}</div>
             </div>
         )
     }

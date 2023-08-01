@@ -1,18 +1,18 @@
 import React from 'react';
 
 class Car extends React.Component{
-    constructor({car}) {
-        super({car});
-        this.car = car;
+    constructor(props) {
+        super(props);
     }
 
     render() {
+        const {id,brand,price,year} = this.props.car;
         return(
             <div style={{margin: '10px'}}>
-                <div>{this.car.id}</div>
-                <div>{this.car.brand}</div>
-                <div>{this.car.price}</div>
-                <div>{this.car.year}</div>
+                <div>{id}</div>
+                <div>{brand}</div>
+                <div>{price}</div>
+                <div>{year}</div>
             </div>
         )
     }

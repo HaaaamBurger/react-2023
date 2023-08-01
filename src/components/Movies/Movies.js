@@ -54,7 +54,6 @@ const Movies = () => {
         reset();
     }
 
-    // const resetOption =
     const handleGenre = (event) => {
         const selectedGenreId = +event.target.value;
         if (selectedGenreId === 0) {
@@ -77,7 +76,7 @@ const Movies = () => {
                     <div className={styles.selectGenreInput}>
                         <select onChange={handleGenre}>
                             <option value={0}>None</option>
-                            {genres.map(genre => <option value={genre.id} {...register(`${genre.name}`)}>{genre.name}</option>)}
+                            {genres.map((genre,index) => <option value={genre.id} key={index} {...register(`${genre.name}`)}>{genre.name}</option>)}
                         </select>
                     </div>
                     <form onSubmit={handleSubmit(save)} className={styles.searchForm}>

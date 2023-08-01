@@ -6,7 +6,7 @@ import {Header} from "../../components/Header";
 
 const MainLayout = () => {
     return (
-        <div class={'layoutWrapper'} style={{height: '100vh', overflow: 'auto'}}>
+        <div className={'layoutWrapper'} style={{height: '100vh', overflow: 'auto'}}>
             <div>
                 <Header/>
             </div>

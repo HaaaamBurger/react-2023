@@ -18,7 +18,7 @@ const Header = () => {
                     <NavLink to={'/page/1'}>Films</NavLink>
                     <NavLink to={'/favourites'}>Favourites</NavLink>
 
-                    <div class={'themeWrapper'} style={{display: 'flex', alignItems: 'center'}}>
+                    <div className={'themeWrapper'} style={{display: 'flex', alignItems: 'center'}}>
                         <button onClick={() => {
                             const mainLayout = document.getElementsByClassName('layoutWrapper')[0];
                             mainLayout.classList.toggle(styles.blackTheme);

@@ -33,11 +33,11 @@ const Movies = () => {
     }, [page]);
 
     const pageHandleUp = () => {
-        setPage(prevState => prevState !== 500 ? prevState + 1 : prevState = 500);
+        setPage(prevState => prevState !== 500 ? prevState + 1 : 500);
     }
 
     const pageHandleDown = () => {
-        setPage(prevState => prevState !== 1 ? prevState - 1 : prevState = 1);
+        setPage(prevState => prevState !== 1 ? prevState - 1 : 1);
     }
 
     const {handleSubmit,

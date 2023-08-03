@@ -1,6 +1,6 @@
-import {useMemo} from 'react';
+import {useCallback, useMemo} from 'react';
 
-const TestUseMemo = ({data}) => {
+const TestUseMemo = ({data,setData}) => {
 
     console.log('TestUser Render');
 
@@ -22,7 +22,6 @@ const TestUseMemo = ({data}) => {
 
         <div>
             <div>{calcResult}</div>
-
         </div>
     );
 };

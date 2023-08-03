@@ -15,15 +15,13 @@ function TestUseMemoAPP() {
     console.log('App Render');
 
     const handleClick = () => {
-        setData(prevState => prevState + 1)
+        setData(prevState => prevState + 1);
     }
-
-
 
     return (
         <div>
             <div>
-                <TestUseMemo data={data}/>
+                <TestUseMemo data={data} setData={setData}/>
                 <button onClick={handleClick}>Click</button>
                 <button onClick={handleSomething}>Test Render</button>
             </div>

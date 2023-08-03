@@ -1,11 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {useArray} from "./useArray";
 
 const ArrayComponent = () => {
-    const [data,setData] = useState([]);
 
-    useArray(data);
+   const { array, add, remove } = useArray(['item1', 'item2', 'item3']);
+   useEffect(() => {
+        add('test');
+        remove(0);
+   },[])
+
+    console.log(array);
 
     return (
         <div>

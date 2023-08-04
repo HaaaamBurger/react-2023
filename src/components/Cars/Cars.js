@@ -1,27 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {carsServices} from "../../services";
 import {Car} from "./Car/Car";
 
-class Cars extends React.Component{
+class Cars extends Component{
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            cars: []
+        };
     }
 
     componentDidMount() {
-        carsServices.getAll().then(({data}) => this.setState(data));
+        carsServices.getAll().then(({data}) => this.setState({cars: data}));
     }
 
     render() {
-        let data = [];
-        if (this.state) {
-            for (let car in this.state) {
-                data.push(this.state[car]);
-            }
-        }
 
         return(
-            <div>{data.map(car => <Car key={car.id} car={car}/>)}</div>
+            <div>{this.state.cars.map(car => <Car key={car.id} car={car}/>)}</div>
         )
     }
 }

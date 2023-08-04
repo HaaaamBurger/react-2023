@@ -1,29 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import {Comment} from "./Comment/Comment";
 import {jsonServices} from "../../services";
 
-class Comments extends React.Component{
+class Comments extends Component{
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            comments: []
+        };
 
     }
 
     componentDidMount() {
-        jsonServices.getComments().then(({data}) => this.setState(data));
+        jsonServices.getComments().then(({data}) => this.setState({comments: data}));
     }
 
     render() {
-        const data = [];
-        if (this.state) {
-            for(let comment in this.state) {
-                data.push(this.state[comment]);
-            }
-        }
 
         return(
-            <div>{data.map(comment => <Comment key={comment.id} comment={comment}/>)}</div>
+            <div>{this.state.comments.map(comment => <Comment key={comment.id} comment={comment}/>)}</div>
         )
     }
 }

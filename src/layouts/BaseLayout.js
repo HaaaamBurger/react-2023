@@ -10,7 +10,7 @@ const BaseLayout = () => {
         <div>
             {/*<Posts/>*/}
             {/*<Comments/>*/}
-            {/*<Cars/>*/}
+            <Cars/>
         </div>
     );
 };

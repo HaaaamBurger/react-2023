@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+
 import {useForm} from "react-hook-form";
 import {carServices} from "../../services";
 
@@ -11,7 +12,12 @@ const CarForm = ({setTrigger}) => {
     } = useForm()
 
     const saveCar = (object) => {
-        carServices.create(object)
+        if (object) {
+            carServices.create(object).then(() => {
+                setTrigger(prevState => !prevState);
+                reset();
+            })
+        }
 
     }
 

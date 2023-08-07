@@ -11,10 +11,7 @@ const CarForm = ({setTrigger}) => {
     } = useForm()
 
     const saveCar = (object) => {
-        carServices.create(object).then(() => {
-            setTrigger(prevState => !prevState);
-            reset();
-        })
+        carServices.create(object)
 
     }
 

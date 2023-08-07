@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Cars} from "../../components/Cars";
 import {CarForm} from "../../components/CarForm/CarForm";
 
 const MainLayout = () => {
+    const [trigger,setTrigger] = useState(null);
+
     return (
         <div>
-          <CarForm/>
+          <CarForm setTrigger={setTrigger}/>
           <hr/>
-          <Cars/>
+          <Cars trigger={trigger}/>
         </div>
     );
 };

@@ -6,14 +6,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux/actions/carActions";
 
 
-const Cars = () => {
+const Cars = ({trigger}) => {
     const dispatch = useDispatch();
 
     const cars = useSelector(store => store.carsReducer.cars);
 
     useEffect(() => {
         carServices.getAll().then(({data}) => dispatch(carActions.setCars(data)));
-    },[])
+    },[trigger])
 
     return (
         <div>

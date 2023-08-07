@@ -13,18 +13,18 @@ const CarForm = ({setTrigger}) => {
 
     const saveCar = (object) => {
         console.log(object)
-        carServices.create(object).then(() => {
-            reset()
-        })
+        // carServices.create(object).then(() => {
+        //     reset()
+        // })
 
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit(saveCar)}>
-                <input type="text" placeholder={'brand'} {...register('brand')}/>
+                {/*<input type="text" placeholder={'brand'} {...register('brand')}/>*/}
                 <input type="number" placeholder={'year'} {...register('year')}/>
-                <input type="number" placeholder={'price'} {...register('price')}/>
+                {/*<input type="number" placeholder={'price'} {...register('price')}/>*/}
                 <button disabled={!isValid}>Add</button>
             </form>
         </div>

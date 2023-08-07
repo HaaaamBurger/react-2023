@@ -12,22 +12,25 @@ const CarForm = ({setTrigger}) => {
     } = useForm()
 
     const saveCar = (object) => {
-        console.log(object)
-        // carServices.create(object).then(() => {
+        const newObject = {
+            brand: object.brand,
+            year: +object.year,
+            price: +object.price
+        }
+        console.log(newObject)
+        // carServices.create(newObject).then(() => {
         //     reset()
         // })
 
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(saveCar)}>
-                {/*<input type="text" placeholder={'brand'} {...register('brand')}/>*/}
-                <input type="number" placeholder={'year'} {...register('year')}/>
-                {/*<input type="number" placeholder={'price'} {...register('price')}/>*/}
-                <button disabled={!isValid}>Add</button>
-            </form>
-        </div>
+        <form onSubmit={handleSubmit(saveCar)}>
+            <input type="text" {...register('brand')}/>
+            <input type="number" {...register('year')}/>
+            <input type="number" {...register('price')}/>
+            <button disabled={!isValid}>Add</button>
+        </form>
     );
 };
 

@@ -2,9 +2,12 @@ import React, {useEffect} from 'react';
 
 import {useForm} from "react-hook-form";
 import {carServices} from "../../services";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {carActions} from "../../redux/actions/carActions";
 
 const CarForm = ({setTrigger,carForUpdate,setCarForUpdate}) => {
+    const carDispatch = useDispatch();
+
     const {
         formState: {isValid, errors},
         handleSubmit,
@@ -26,6 +29,8 @@ const CarForm = ({setTrigger,carForUpdate,setCarForUpdate}) => {
     },[carForUpdate])
 
     const updateCar = (car) => {
+        carDispatch(carActions.updateCarById(carForUpdate,car))
+
         carServices.updateById(carForUpdate,car).then(() => {
             setTrigger(prevState => !prevState);
             reset();

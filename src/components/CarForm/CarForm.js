@@ -1,31 +1,44 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {useForm} from "react-hook-form";
 import {carServices} from "../../services";
 
-const CarForm = ({setTrigger}) => {
+const CarForm = ({setTrigger,carForUpdate}) => {
     const {
         formState: {isValid, errors},
         handleSubmit,
         register,
-        reset
+        reset,
+        setValue
+
     } = useForm()
 
-    const saveCar = (object) => {
-        const newObject = {
-            brand: object.brand,
-            year: +object.year,
-            price: +object.price
+    useEffect(() => {
+        console.log(carForUpdate)
+        if (carForUpdate) {
+            setValue('brand',carForUpdate.brand);
+            setValue('year',carForUpdate.year);
+            setValue('price',carForUpdate.price);
         }
-        console.log(newObject)
-        // carServices.create(newObject).then(() => {
-        //     reset()
-        // })
+    },[carForUpdate])
+
+
+    const updateCar = (car) => {
+        carServices.updateById(car.id).then(() => {
+
+        })
+    }
+
+    const saveCar = (object) => {
+        carServices.create(object).then(() => {
+            setTrigger(prevState => !prevState)
+            reset()
+        })
 
     }
 
     return (
-        <form onSubmit={handleSubmit(saveCar)}>
+        <form onSubmit={handleSubmit(!carForUpdate ? saveCar : updateCar)}>
             <input type="text" {...register('brand')}/>
             <input type="number" {...register('year')}/>
             <input type="number" {...register('price')}/>

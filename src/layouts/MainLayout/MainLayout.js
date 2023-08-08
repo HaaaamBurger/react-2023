@@ -4,12 +4,13 @@ import {CarForm} from "../../components/CarForm/CarForm";
 
 const MainLayout = () => {
     const [trigger,setTrigger] = useState(null);
+    const [carForUpdate,setCarForUpdate] = useState(null);
 
     return (
         <div>
-          <CarForm setTrigger={setTrigger}/>
+          <CarForm setTrigger={setTrigger} carForUpdate={carForUpdate}/>
           <hr/>
-          <Cars trigger={trigger}/>
+          <Cars trigger={trigger} setTrigger={setTrigger} setCarForUpdate={setCarForUpdate}/>
         </div>
     );
 };

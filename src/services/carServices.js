@@ -3,9 +3,9 @@ import {links} from "../constants";
 
 const carServices = {
     getAll: () => apiServices.get(links.cars),
-    create: (car) => apiServices.create(links.cars, car),
-    deleteById: (id) => apiServices.delete(links.cars),
-    updateById: (id) => apiServices.put(links.cars)
+    create: (car) => apiServices.post(links.cars, car),
+    deleteById: (id) => apiServices.delete(links.cars + '/' + id),
+    updateById: (id) => apiServices.put(links.cars + '/' + id)
 }
 
 export {carServices};

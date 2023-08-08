@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux/actions/carActions";
 
 
-const Cars = ({trigger}) => {
+const Cars = ({trigger,setTrigger,setCarForUpdate}) => {
     const dispatch = useDispatch();
 
     const cars = useSelector(store => store.carsReducer.cars);
@@ -17,7 +17,7 @@ const Cars = ({trigger}) => {
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car}/>)}
+            {cars.map(car => <Car key={car.id} car={car} setTrigger={setTrigger} setCarForUpdate={setCarForUpdate}/>)}
         </div>
     );
 };

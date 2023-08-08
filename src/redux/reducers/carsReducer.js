@@ -1,7 +1,6 @@
 const initialState = {
     cars: []
 }
-
 const carsReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_CARS':

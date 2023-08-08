@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 
 import {useForm} from "react-hook-form";
 import {carServices} from "../../services";
+import {useSelector} from "react-redux";
 
 const CarForm = ({setTrigger,carForUpdate}) => {
     const {
@@ -13,19 +14,21 @@ const CarForm = ({setTrigger,carForUpdate}) => {
 
     } = useForm()
 
+    const cars = useSelector(store => store.carsReducer.cars);
+
     useEffect(() => {
-        console.log(carForUpdate)
         if (carForUpdate) {
-            setValue('brand',carForUpdate.brand);
-            setValue('year',carForUpdate.year);
-            setValue('price',carForUpdate.price);
+            const getCar = cars.find(car => car.id === carForUpdate ? {brand: car.brand, year: car.year, price: car.price} : null);
+            setValue('brand',getCar.brand);
+            setValue('year',getCar.year);
+            setValue('price',getCar.price);
         }
     },[carForUpdate])
 
-
     const updateCar = (car) => {
-        carServices.updateById(car.id).then(() => {
-
+        carServices.updateById(carForUpdate,car).then(() => {
+            setTrigger(prevState => !prevState);
+            reset();
         })
     }
 

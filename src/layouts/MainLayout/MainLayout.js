@@ -8,7 +8,7 @@ const MainLayout = () => {
 
     return (
         <div>
-          <CarForm setTrigger={setTrigger} carForUpdate={carForUpdate}/>
+          <CarForm setTrigger={setTrigger} carForUpdate={carForUpdate} setCarForUpdate={setCarForUpdate}/>
           <hr/>
           <Cars trigger={trigger} setTrigger={setTrigger} setCarForUpdate={setCarForUpdate}/>
         </div>

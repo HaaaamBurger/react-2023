@@ -4,7 +4,7 @@ import {useForm} from "react-hook-form";
 import {carServices} from "../../services";
 import {useSelector} from "react-redux";
 
-const CarForm = ({setTrigger,carForUpdate}) => {
+const CarForm = ({setTrigger,carForUpdate,setCarForUpdate}) => {
     const {
         formState: {isValid, errors},
         handleSubmit,
@@ -29,6 +29,7 @@ const CarForm = ({setTrigger,carForUpdate}) => {
         carServices.updateById(carForUpdate,car).then(() => {
             setTrigger(prevState => !prevState);
             reset();
+            setCarForUpdate(null);
         })
     }
 
@@ -37,15 +38,14 @@ const CarForm = ({setTrigger,carForUpdate}) => {
             setTrigger(prevState => !prevState)
             reset()
         })
-
     }
 
     return (
         <form onSubmit={handleSubmit(!carForUpdate ? saveCar : updateCar)}>
-            <input type="text" {...register('brand')}/>
-            <input type="number" {...register('year')}/>
-            <input type="number" {...register('price')}/>
-            <button disabled={!isValid}>Add</button>
+            <input type="text" {...register('brand')} placeholder={'brand'}/>
+            <input type="number" {...register('year')} placeholder={'year'}/>
+            <input type="number" {...register('price')} placeholder={'price'}/>
+            <button disabled={!isValid}>{!carForUpdate ? 'Add' : 'Update'}</button>
         </form>
     );
 };

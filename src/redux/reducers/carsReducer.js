@@ -16,7 +16,7 @@ const carsReducer = (state = initialState, action) => {
         // case 'UPDATE_CAR_BY_ID':
         //     return {
         //         ...state,
-        //
+        //         cars: state.cars.find
         //     }
         default:
             return state

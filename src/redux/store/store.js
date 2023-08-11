@@ -1,20 +1,16 @@
-import {combineReducers, createStore} from "redux";
-import {composeWithDevToolsDevelopmentOnly} from "@redux-devtools/extension";
-import {postsReducer} from "../reducers/postsReducer";
-import {albumsReducer} from "../reducers/albumsReducer";
-import {commentsReducer} from "../reducers/commentsReducer";
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import {rickmortyReducer} from "../reducers";
+import {composeWithDevToolsDevelopmentOnly, devToolsEnhancerDevelopmentOnly} from "@redux-devtools/extension";
+import thunk from "redux-thunk";
 
 const rootReducers = combineReducers({
-    postsReducer,
-    albumsReducer,
-    commentsReducer
+    rickmortyReducer
 })
-
 const composeEnhancers = composeWithDevToolsDevelopmentOnly({
     trace: true,
     traceLimit: 25
-})
+});
 
-const store = createStore(rootReducers,composeEnhancers());
+const store = createStore(rootReducers,composeEnhancers(applyMiddleware(thunk)));
 
 export {store};

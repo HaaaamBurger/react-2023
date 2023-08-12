@@ -1,2 +1,2 @@
-export * from './R&M/R&M';
-export * from './R&Ms/R&Ms'
+export * from './Header';
+export * from './PlaceholderMain';

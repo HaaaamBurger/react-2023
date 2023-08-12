@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+}
+.HeaderWrapper{
+    background-color: cornflowerblue;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.HeaderWrapper a{
+    text-decoration: none;
+    color: azure;
+    font-weight: 800;
+    font-size: 1.7em;
+}
+.HeaderWrapper a:hover{
+    text-decoration: underline;
+}
+.HeaderWrapper a[class='active']{
+    color: cyan;
+}

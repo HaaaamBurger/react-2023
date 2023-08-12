@@ -18,6 +18,10 @@ const router = createBrowserRouter([
                 element: <Placeholder/>,
                 children: [
                     {
+                        index: true,
+                        element: <Navigate to={'/placeholder/posts'}/>
+                    },
+                    {
                         path: '/placeholder/posts',
                         element: <Posts/>
                     },

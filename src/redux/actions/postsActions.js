@@ -8,8 +8,9 @@ const postsActions = {
     setAll: (data) => ({type: postsActionsTypes.SET_POSTS, payload: data})
 }
 
-const getPosts = async () => (dispatch) => {
-    placeholderService.getPosts().then(({data}) => dispatch(postsActions.setAll(data)))
+const getPosts = () => async (dispatch) => {
+    const {data} = await placeholderService.getPosts();
+    dispatch(postsActions.setAll(data));
 }
 
-export {postsActions,postsActionsTypes,getPosts};
+export {postsActionsTypes,getPosts};

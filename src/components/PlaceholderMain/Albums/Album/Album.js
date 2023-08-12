@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Album = () => {
-    return (
-        <div>
+import styles from './Album.module.css';
 
+const Album = ({album}) => {
+    const {id,userId,title} = album;
+
+    return (
+        <div className={styles.AlbumWrapper}>
+            <div>id: {id}</div>
+            <div>userId: {userId}</div>
+            <div>title: {title}</div>
         </div>
     );
 };

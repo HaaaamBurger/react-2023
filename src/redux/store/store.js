@@ -1,10 +1,13 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {composeWithDevToolsDevelopmentOnly} from "@redux-devtools/extension";
 import thunk from "redux-thunk";
-import {postsReducer} from "../reducers";
+
+import {albumsReducer, commentsReducer, postsReducer} from "../reducers";
 
 const rootReducer = combineReducers({
-    postsReducer
+    postsReducer,
+    commentsReducer,
+    albumsReducer
 });
 
 const composeEnhancers = composeWithDevToolsDevelopmentOnly({

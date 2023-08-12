@@ -1,4 +1,5 @@
-import {postsActionsTypes} from "../actions/postsActions";
+import {postsActionsTypes} from "../actions";
+
 
 const initialState = {
     posts: []

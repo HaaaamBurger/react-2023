@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
+
+import styles from './Posts.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {getPosts} from "../../../redux/actions/postsActions";
+import {Post} from "./Post";
+import {getPosts} from "../../../redux";
 
 const Posts = () => {
     const dispatch = useDispatch();
@@ -10,11 +13,9 @@ const Posts = () => {
        dispatch(getPosts())
     },[])
 
-    console.log(posts)
-
     return (
-        <div>
-            Posts
+        <div className={styles.PostsWrapper}>
+            {posts.map(post => <Post key={post.id} post={post}/>)}
         </div>
     );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
-import {CarsForm, CarsOwu} from "../../components/CarsMain";
 
+import {CarsForm, CarsOwu} from "../../components/CarsMain";
+import styles from './Cars.module.css';
 
 const Cars = () => {
     return (
-        <div>
+        <div className={styles.CarsWrapper}>
             <CarsForm/>
             <hr/>
             <CarsOwu/>

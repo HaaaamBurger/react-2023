@@ -1,4 +1,4 @@
-import {placeholderService} from "../../services";
+import {placeholderService} from "../../../services";
 
 const albumsActionsTypes = {
     SET_ALBUMS: 'SET_ALBUMS'

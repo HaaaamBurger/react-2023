@@ -1,3 +1,2 @@
-export * from './postsActions';
-export * from './commentsActions';
-export * from './albumsActions';
+export * from './Placeholder';
+export * from './Cars';

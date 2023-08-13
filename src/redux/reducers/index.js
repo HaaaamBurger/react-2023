@@ -1,3 +1,2 @@
-export * from './postsReducer';
-export * from './albumsReducer';
-export * from './commentsReducer'
+export * from './Placeholder';
+export * from './Cars';

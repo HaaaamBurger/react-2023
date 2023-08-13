@@ -15,7 +15,8 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4",
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "react-hook-form": "^7.45.4"
   },
   "scripts": {
     "start": "react-scripts start",

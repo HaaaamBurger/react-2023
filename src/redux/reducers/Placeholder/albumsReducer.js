@@ -1,4 +1,4 @@
-import {albumsActionsTypes} from "../actions";
+import {albumsActionsTypes} from "../../actions";
 
 const initialState = {
     albums: []

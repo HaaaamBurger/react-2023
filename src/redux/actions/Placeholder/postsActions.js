@@ -1,4 +1,4 @@
-import {placeholderService} from "../../services";
+import {placeholderService} from "../../../services";
 
 const postsActionsTypes = {
     SET_POSTS: 'SET_POSTS'

@@ -1,9 +1,23 @@
 import React from 'react';
 
-const CarOwu = () => {
-    return (
-        <div>
+import styles from './CarOwu.module.css';
+import {useDispatch} from "react-redux";
+import {carsAxiosMethods} from "../../../../redux";
+const CarOwu = ({car}) => {
+    const {id,brand,price,year} = car;
 
+    const dispatch = useDispatch();
+    const handleDelete = () => {
+        dispatch(carsAxiosMethods.deleteCar(id))
+    }
+    return (
+        <div className={styles.CommentWrapper}>
+            <div>id: {id}</div>
+            <div>brand: {brand}</div>
+            <div>price: {price}</div>
+            <div>year: {year}</div>
+            <button onClick={handleDelete}>Delete</button>
+            <button>Update</button>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import {commentsActionsTypes} from "../actions";
+import {commentsActionsTypes} from "../../actions";
 
 const initialState = {
     comments: []

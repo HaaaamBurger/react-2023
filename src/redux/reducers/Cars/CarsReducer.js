@@ -17,12 +17,17 @@ const carsReducer = (state = initialState, action) => {
         case carsActionsTypes.DELETE_CAR:
             return {
                 ...state,
-                deleteCar: state.cars.find(car => car.id === action.payload)
+                deleteCar: action.payload
             }
         case carsActionsTypes.CREATE_CAR:
             return {
                 ...state,
                 createCar: action.payload
+            }
+        case carsActionsTypes.UPDATE_CAR:
+            return {
+                ...state,
+                updateCar: action.payload
             }
         default:
             return state

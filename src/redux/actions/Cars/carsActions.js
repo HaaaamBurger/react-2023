@@ -10,7 +10,8 @@ const carsActionsTypes = {
 const carsActions = {
     setAll: (data) => ({type: carsActionsTypes.SET_ALL_CARS, payload: data}),
     deleteCar: (id) => ({type: carsActionsTypes.DELETE_CAR, payload: id}),
-    createCar: (car) => ({type: carsActionsTypes.CREATE_CAR, payload: car})
+    createCar: (car) => ({type: carsActionsTypes.CREATE_CAR, payload: car}),
+    updateCar: (id,car) => ({type: carsActionsTypes.UPDATE_CAR, payload: {id,car}})
 }
 
 const getCars = () => async(dispatch) => {
@@ -18,9 +19,9 @@ const getCars = () => async(dispatch) => {
     dispatch(carsActions.setAll(data))
 }
 
-const deleteCar = (id) => async(dispatch) => {
+const deleteCar = (id,car) => async(dispatch) => {
     await carsService.deleteById(id);
-    dispatch(carsActions.deleteCar(id))
+    dispatch(carsActions.deleteCar(car))
     await dispatch(getCars())
 }
 
@@ -30,10 +31,19 @@ const createCar = (car) => async(dispatch) => {
     await dispatch(getCars())
 }
 
+const updateCar = (id,car) => async(dispatch) => {
+    await carsService.updateById(id, car);
+    dispatch(carsActions.updateCar(id, car));
+    await dispatch(getCars());
+
+
+}
+
 const carsAxiosMethods = {
     getCars,
     deleteCar,
-    createCar
+    createCar,
+    updateCar
 }
 
-export {carsActionsTypes,carsAxiosMethods};
+export {carsActionsTypes,carsAxiosMethods,carsActions};

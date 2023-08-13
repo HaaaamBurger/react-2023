@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import styles from './CarForm.module.css';
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
-import {carsActions, carsAxiosMethods} from "../../../redux";
+import {carsAxiosMethods} from "../../../redux";
 const CarsForm = () => {
     const {
         reset,

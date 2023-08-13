@@ -14,25 +14,24 @@ const CarsForm = () => {
     } = useForm({mode: 'all'});
 
     const dispatch = useDispatch();
-    const updateCar = useSelector(store => store.carsReducer.updateCar);
+    const updateCar = useSelector(store => store.carsReducer.updateCar?.car);
     console.log(updateCar);
 
     useEffect(() => {
         if (updateCar) {
-            setValue('brand',updateCar.car.brand,{shouldValidate: true});
-            setValue('year',updateCar.car.year,{shouldValidate: true});
-            setValue('price',updateCar.car.price,{shouldValidate: true});
+            setValue('brand',updateCar.brand,{shouldValidate: true});
+            setValue('year',updateCar.year,{shouldValidate: true});
+            setValue('price',updateCar.price,{shouldValidate: true});
         }
     },[updateCar])
 
-    const saveCar = (car) => {
-        dispatch(carsAxiosMethods.createCar(car))
+    const saveCar = (updateCar) => {
+        dispatch(carsAxiosMethods.createCar(updateCar))
         reset();
     }
 
-    const carForUpdate = async (updateCar) => {
-        console.log(updateCar)
-        await (carsAxiosMethods.updateCar(updateCar.id, updateCar));
+    const carForUpdate = async (carForUpdate) => {
+        await dispatch(carsAxiosMethods.updateCar(updateCar.id, carForUpdate));
         reset();
     }
 

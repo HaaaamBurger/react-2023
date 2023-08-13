@@ -17,7 +17,7 @@ const CarOwu = ({car}) => {
             <div>price: {price}</div>
             <div>year: {year}</div>
             <button onClick={handleDelete}>Delete</button>
-            <button onClick={() => dispatch(carsActions.updateCar(id,car))}>Update</button>
+            <button onClick={() => dispatch(carsActions.updateCar(car))}>Update</button>
         </div>
     );
 };

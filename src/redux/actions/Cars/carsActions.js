@@ -11,7 +11,7 @@ const carsActions = {
     setAll: (data) => ({type: carsActionsTypes.SET_ALL_CARS, payload: data}),
     deleteCar: (id) => ({type: carsActionsTypes.DELETE_CAR, payload: id}),
     createCar: (car) => ({type: carsActionsTypes.CREATE_CAR, payload: car}),
-    updateCar: (id,car) => ({type: carsActionsTypes.UPDATE_CAR, payload: {id,car}})
+    updateCar: (car) => ({type: carsActionsTypes.UPDATE_CAR, payload: {car}})
 }
 
 const getCars = () => async(dispatch) => {
@@ -33,9 +33,8 @@ const createCar = (car) => async(dispatch) => {
 
 const updateCar = (id,car) => async(dispatch) => {
     await carsService.updateById(id, car);
-    dispatch(carsActions.updateCar(id, car));
+    dispatch(carsActions.updateCar(null));
     await dispatch(getCars());
-
 
 }
 

@@ -1,13 +1,22 @@
-import {carsActionsTypes} from "../../actions";
+import {Cars, carsActionsTypes} from "../../actions";
 
-const initialState = {
+interface InitialState{
+    cars: Cars[] | null,
+    deleteCar: number | null,
+    updateCar: {} | null,
+    createCar: {} | null
+}
+
+const initialState: InitialState = {
     cars: [],
     deleteCar: null,
     updateCar: null,
     createCar: null
 }
 
-const carsReducer = (state = initialState, action) => {
+
+
+const carsReducer = (state = initialState, action: any) => {
     switch (action.type){
         case carsActionsTypes.SET_ALL_CARS:
             return{

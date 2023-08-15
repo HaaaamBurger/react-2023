@@ -18,4 +18,7 @@ const composeEnhancers = composeWithDevToolsDevelopmentOnly({
 
 const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));
 
+export type AppStateType = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch;
+
 export {store};

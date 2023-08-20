@@ -21,16 +21,8 @@ const all = () => createAsyncThunk(
 const carSlice = createSlice({
     name: 'car',
     initialState,
-    extraReducers: builder =>
-        builder
-            .addCase(all.fulfilled,(state, action) => {
-                state.cars = action.payload;
-                state.isLoading = false
-            })
-            .addCase(all.pending, (state) => {
-                state.isLoading = true;
-            }),
-    reducers: {}
+    reducers: {},
+    extraReducers: {}
 })
 
 const {reducer: carReducer} = carSlice;

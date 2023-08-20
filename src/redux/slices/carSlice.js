@@ -8,21 +8,22 @@ const initialState = {
 }
 
 const all = () => createAsyncThunk(
-    'car/all',
+    'carSlice/all',
     async (_,thunkAPI) => {
-        try {
-            return await carService.getAll();
-        }catch (e){
-            return thunkAPI.rejectWithValue(e.response.data)
-        }
+        const data = await carService.getAll();
+        return data;
     }
 )
 
 const carSlice = createSlice({
-    name: 'car',
+    name: 'carSlice',
     initialState,
     reducers: {},
-    extraReducers: {}
+    extraReducers: builder =>
+        builder
+            .addCase(all.fulfilled, (state, action) => {
+                state.cars = action.payload;
+    })
 })
 
 const {reducer: carReducer} = carSlice;

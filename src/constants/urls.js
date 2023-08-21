@@ -1,7 +1,11 @@
-const baseURL = 'http://owu.linkpc.net/carsAPI/v1';
+const baseURL = 'https://rickandmortyapi.com/api';
 
 const urls = {
-    cars: '/cars'
+    episode: '/episode',
+    character: '/character'
 }
 
-export {urls,baseURL};
+export {
+    urls,
+    baseURL
+}

@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+}
+.HeaderWrapper{
+    height: 60px;
+    background-color: #282c34;
+    width: 100%;
+    display: flex;
+   justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-size: 1.2em;
+}

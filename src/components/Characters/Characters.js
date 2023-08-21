@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Car = () => {
+const Characters = () => {
     return (
         <div>
-            Car
+            Characters
         </div>
     );
 };
 
 export {
-    Car,
+    Characters,
 };

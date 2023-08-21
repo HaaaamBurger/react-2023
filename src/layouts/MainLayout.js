@@ -1,13 +1,13 @@
 import React from 'react';
-import {CarForm} from "../components/CarForm";
-import {Cars} from "../components/Cars";
+
+import {Outlet} from "react-router-dom";
+import {Header} from "../components";
 
 const MainLayout = () => {
     return (
         <div>
-            <CarForm/>
-            <hr/>
-            <Cars/>
+            <Header/>
+            <Outlet/>
         </div>
     );
 };
